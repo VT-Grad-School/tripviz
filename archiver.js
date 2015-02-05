@@ -35,9 +35,9 @@ var User = sequelize.define('User', {
   image: Sequelize.STRING
 });
 
-Media.belongsTo(Tweet);
-Tweet.belongsTo(User);
-Media.belongsTo(User);
+Media.belongsTo(Tweet); //a tweet may have many media
+Tweet.belongsTo(User);  //a user may have many tweets
+Media.belongsTo(User);  //a user may have many media
  
 sequelize.sync().success(function() {
   console.log('success!');
@@ -80,7 +80,7 @@ function gotTweets (err, data, response) {
         
         if (theCurrentTweet.hasOwnProperty('user')) {
 
-          User.create({
+          var u = User.create({
             screenName: theCurrentTweet.user.screen_name,
             name: theCurrentTweet.user.name,
             image: theCurrentTweet.user.profile_image_url
@@ -90,14 +90,15 @@ function gotTweets (err, data, response) {
             twitter_id: theCurrentTweet.id,
             text: theCurrentTweet.text,
             lat: theCurrentTweet.geo.coordinates[0],
-            long: theCurrentTweet.geo.coordinates[1]
-            dateTime: 
+            long: theCurrentTweet.geo.coordinates[1],
+            dateTime: theCurrentTweet.created_at
           });
 
-          // t.set
+          t.setUser(u);
 
           if (theCurrentTweet.hasOwnProperty('entities') && theCurrentTweet.entities.hasOwnProperty('media')) {
             for (var j=0; j<theCurrentTweet.entities.media.length; j++) {
+              var theCurrentMedium = theCurrentTweet.entities.media[i];
               Media.create({
                 twitter_id: 
                 url: 
