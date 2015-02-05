@@ -98,43 +98,46 @@ function gotTweets (err, data, response, startTime) {
           
           if (theCurrentTweet.hasOwnProperty('user')) {
 
-            User.findOrCreate({
-              twitter_id: theCurrentTweet.user.id_str
-            }).spread(function(user, created) {
-              if (created) {
-                user.screenName = theCurrentTweet.user.screen_name;
-                user.name = theCurrentTweet.user.name;
-                user.image = theCurrentTweet.user.profile_image_url;
-                user.setRun(runObj);
-                user.save();
-              }
-
-              var t = Tweet.create({
-                twitter_id: theCurrentTweet.id_str,
-                text: theCurrentTweet.text,
-                lat: theCurrentTweet.geo.coordinates[0],
-                long: theCurrentTweet.geo.coordinates[1],
-                dateTime: theCurrentTweet.created_at
-              });
-
-              t.setUser(user);
-              t.setRun(runObj);
-              t.save();
-
-              if (theCurrentTweet.hasOwnProperty('entities') && theCurrentTweet.entities.hasOwnProperty('media')) {
-                for (var j=0; j<theCurrentTweet.entities.media.length; j++) {
-                  var theCurrentMedium = theCurrentTweet.entities.media[i];
-                  var m = Media.create({
-                    twitter_id: theCurrentMedium.id_str,
-                    url: theCurrentMedium.media_url
-                  });
-                  m.setTweet(t);
-                  m.setUser(u);
-                  m.setRun(runObj);
-                  m.save();
+            User.findOrCreate({ twitter_id: theCurrentTweet.user.id_str })
+              .spread(function(user, created) {
+                if (created) {
+                  user.screenName = theCurrentTweet.user.screen_name;
+                  user.name = theCurrentTweet.user.name;
+                  user.image = theCurrentTweet.user.profile_image_url;
+                  user.setRun(runObj);
+                  return user.save(); //promise
+                } else {
+                  return RSVP.Promise.resolve(user);
                 }
-              }
-            });          
+              })
+              .then(function(user) {
+                var t = Tweet.create({
+                  twitter_id: theCurrentTweet.id_str,
+                  text: theCurrentTweet.text,
+                  lat: theCurrentTweet.geo.coordinates[0],
+                  long: theCurrentTweet.geo.coordinates[1],
+                  dateTime: theCurrentTweet.created_at
+                });
+
+                t.setUser(user);
+                t.setRun(runObj);
+                return t.save(); //promise
+              })
+              .then(function(t) {
+                if (theCurrentTweet.hasOwnProperty('entities') && theCurrentTweet.entities.hasOwnProperty('media')) {
+                  for (var j=0; j<theCurrentTweet.entities.media.length; j++) {
+                    var theCurrentMedium = theCurrentTweet.entities.media[i];
+                    var m = Media.create({
+                      twitter_id: theCurrentMedium.id_str,
+                      url: theCurrentMedium.media_url
+                    });
+                    m.setTweet(t);
+                    m.setUser(t.user);
+                    m.setRun(runObj);
+                    m.save(); //promise
+                  }
+                }
+              });
           }
         }
       }
