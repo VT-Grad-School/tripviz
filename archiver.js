@@ -8,7 +8,7 @@ var T = new Twit({
   , access_token_secret:  'UO7ONwgMLhGeRylc45sZw060lXK7RpAygI9hd7oplivAp'
 });
 
-const QUERY = "from:@GPPVT OR to:@GPPVT OR #gpp15";
+const QUERY = "#gpptripviz123";
 const COUNT = 100;
 
 var Sequelize = require('sequelize')
@@ -56,7 +56,7 @@ var accumulator = [];
 
 function gotTweets (err, data, response, startTime) {
   var endTime = new Date();
-  // console.log('gotTweets');
+  //console.log(data);
   if (err) {
     console.error('error in gotTweets', err);
     return;
@@ -71,17 +71,17 @@ function gotTweets (err, data, response, startTime) {
     }).success(function(runObj){
 
       if (data.hasOwnProperty('statuses')) {
-      // console.log('gotTweets has statuses');
+      //console.log('gotTweets has statuses');
 
       accumulator.push.apply(accumulator, data.statuses);
 
-      // console.log(data.search_metadata);
-      // console.log(data.statuses.length);
+      //console.log(data.search_metadata);
+      //console.log(data.statuses.length);
 
       if (data.hasOwnProperty('search_metadata') && 
         data.search_metadata.hasOwnProperty('next_results') && 
         data.next_results.length>0) {
-        // console.log('next results');
+        console.log('next results');
         // ?max_id=475034902396960767&q=%23gpp14%20since%3A2014-05-27&include_entities=1
         var maxIdPos = data.next_results.indexOf('max_id=');
         var endMaxPos = data.next_results.indexOf('&', max_id);
@@ -89,16 +89,17 @@ function gotTweets (err, data, response, startTime) {
         T.get('search/tweets', { q: query, max_id: maxId}, gotTweets); 
       }
       else {
-        // console.log('gotTweets has NO statuses');
-        var tweetsToArchive = withoutRetweetsAndUnlocated(accumulator);
+        console.log('gotTweets has NO MORE statuses');
+        var tweetsToArchive = withoutRetweetsAndUnlocated(accumulator).statuses;
+        //console.log(tweetsToArchive);
 
         for (var i=0; i<tweetsToArchive.length; i++) {
 
           var theCurrentTweet = tweetsToArchive[i];
           
           if (theCurrentTweet.hasOwnProperty('user')) {
-
-            User.findOrCreate({ twitter_id: theCurrentTweet.user.id_str })
+            console.log('current tweet has user property');
+            User.findOrCreate({ where: {twitter_id: theCurrentTweet.user.id_str }})
               .spread(function(user, created) {
                 if (created) {
                   user.screenName = theCurrentTweet.user.screen_name;
@@ -107,34 +108,45 @@ function gotTweets (err, data, response, startTime) {
                   user.setRun(runObj);
                   return user.save(); //promise
                 } else {
-                  return RSVP.Promise.resolve(user);
+                  return user;
                 }
               })
               .then(function(user) {
-                var t = Tweet.create({
+                return Tweet.create({
                   twitter_id: theCurrentTweet.id_str,
                   text: theCurrentTweet.text,
                   lat: theCurrentTweet.geo.coordinates[0],
                   long: theCurrentTweet.geo.coordinates[1],
                   dateTime: theCurrentTweet.created_at
-                });
+                })
+                  .then(function(t){
+                    t.setUser(user);
+                    t.setRun(runObj);
+                    return t.save(); //promise
+                  });
 
-                t.setUser(user);
-                t.setRun(runObj);
-                return t.save(); //promise
               })
               .then(function(t) {
+                // console.log(t);
                 if (theCurrentTweet.hasOwnProperty('entities') && theCurrentTweet.entities.hasOwnProperty('media')) {
+                    console.log("theCurrentTweet.entities.media");
+                    console.log(theCurrentTweet.entities.media[0]);
                   for (var j=0; j<theCurrentTweet.entities.media.length; j++) {
-                    var theCurrentMedium = theCurrentTweet.entities.media[i];
+                    var theCurrentMedium = theCurrentTweet.entities.media[j];
                     var m = Media.create({
                       twitter_id: theCurrentMedium.id_str,
                       url: theCurrentMedium.media_url
-                    });
-                    m.setTweet(t);
-                    m.setUser(t.user);
-                    m.setRun(runObj);
-                    m.save(); //promise
+                    })
+                      .then(function(m){
+                        console.log("check promise");
+                        t.getUser()
+                          .then(function (userObject) {
+                            m.setUser(userObject);
+                          });
+                        m.setRun(runObj);
+                        m.setTweet(t);
+                        return m.save(); //promise
+                      });
                   }
                 }
               });
@@ -156,17 +168,17 @@ T.get('search/tweets', { q: QUERY, count: COUNT }, function(e,d,r){
 });
 
 function withoutRetweetsAndUnlocated (statuses) {
-  // console.log(statuses);
+  //console.log(statuses);
   var results = [];
   for (var i=0; i<statuses.length; i++) {
-    // console.log(i);
+     //console.log(i);
     if (statuses[i].geo!=null && !(statuses[i].hasOwnProperty('retweeted_status'))) {
-      // console.log('if');
+      console.log('if');
       results.push(statuses[i]);
     }
     else {
-      // console.log('else');
-      // console.log(statuses[i]);
+      console.log('else');
+      //console.log(statuses[i]);
     }
   }
   return {statuses: results};
