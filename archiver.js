@@ -8,7 +8,7 @@ var T = new Twit({
   , access_token_secret:  'UO7ONwgMLhGeRylc45sZw060lXK7RpAygI9hd7oplivAp'
 });
 
-cosnt QUERY = "from:@GPPVT OR to:@GPPVT OR #gpp15";
+const QUERY = "from:@GPPVT OR to:@GPPVT OR #gpp15";
 const COUNT = 100;
 
 var Sequelize = require('sequelize')
@@ -55,7 +55,7 @@ sequelize.sync().success(function() {
 var accumulator = [];
 
 function gotTweets (err, data, response, startTime) {
-  var endTime = newDate();
+  var endTime = new Date();
   // console.log('gotTweets');
   if (err) {
     console.error('error in gotTweets', err);
