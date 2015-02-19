@@ -2,6 +2,8 @@ var Twit = require('twit');
 var CronJob = require('cron').CronJob;
 var RSVP = require('rsvp');
 
+var models = require('./tripvizmodels');
+
 var T = new Twit({
   consumer_key:         'dqtsMI0WiSBAoQYrSf1ygor0Y',
   consumer_secret:      'pP4jsDtZVPZiGXK4le5hTqzTmKccuTFLKWmlPGwaE0AdsBmA2D',
@@ -11,52 +13,6 @@ var T = new Twit({
 
 var QUERY = "#gpptripviz123";
 var COUNT = 100;
-
-var Sequelize = require('sequelize')
-  , sequelize = new Sequelize('gpptripviz', 'gpptripviz', 'gpptripviz', {
-      logging: function(){}
-    });
- 
-var Tweet = sequelize.define('tweet', {
-  twitter_id: Sequelize.STRING,
-  text: Sequelize.STRING,
-  lat: Sequelize.FLOAT,
-  long: Sequelize.FLOAT,
-  dateTime: Sequelize.DATE
-});
-
-var Media = sequelize.define('media', {
-  twitter_id: Sequelize.STRING,
-  url: Sequelize.STRING
-});
-
-var User = sequelize.define('user', {
-  screenName: Sequelize.STRING,
-  name: Sequelize.STRING,
-  image: Sequelize.STRING,
-  twitter_id: Sequelize.STRING
-});
-
-var Run = sequelize.define('run', {
-  start_time: Sequelize.DATE,
-  end_time: Sequelize.DATE,
-  max_id: Sequelize.STRING,
-  max_id_str: Sequelize.STRING
-});
-
-Media.belongsTo(Tweet); // a tweet may have many media
-Tweet.belongsTo(User);  // a user may have many tweets
-Media.belongsTo(User);  // a user may have many media
-Media.belongsTo(Run);   // a run may have many media
-Tweet.belongsTo(Run);   // a run may have many tweets
-User.belongsTo(Run);    // a run may have many users
-
-var dbReady = RSVP.all([
-  Tweet.sync(),
-  Media.sync(),
-  User.sync(),
-  Run.sync()
-]);
 
 var accumulator = [];
 
@@ -69,7 +25,7 @@ function gotTweets (err, data, response, startTime) {
   }
 
   if (data.hasOwnProperty('search_metadata')) {
-    Run.create({
+    models.Run.create({
       start_time: startTime,
       end_time: endTime,
       max_id: data.search_metadata.max_id,
@@ -105,7 +61,7 @@ function gotTweets (err, data, response, startTime) {
           
           if (theCurrentTweet.hasOwnProperty('user')) {
             // console.log('current tweet has user property');
-            User.findOrCreate({ where: {twitter_id: theCurrentTweet.user.id_str }})
+            models.User.findOrCreate({ where: {twitter_id: theCurrentTweet.user.id_str }})
               .spread(function(user, created) {
                 if (created) {
                   user.screenName = theCurrentTweet.user.screen_name;
@@ -118,7 +74,7 @@ function gotTweets (err, data, response, startTime) {
                 }
               })
               .then(function(user) {
-                return Tweet.create({
+                return models.Tweet.create({
                   twitter_id: theCurrentTweet.id_str,
                   text: theCurrentTweet.text,
                   lat: theCurrentTweet.geo.coordinates[0],
@@ -126,7 +82,7 @@ function gotTweets (err, data, response, startTime) {
                   dateTime: theCurrentTweet.created_at
                 })
                   .then(function(t){
-                    t.setUser(user);
+                    user.addTweet(t);
                     t.setRun(runObj);
                     return t.save(); //promise
                   });
@@ -139,7 +95,7 @@ function gotTweets (err, data, response, startTime) {
                     // console.log(theCurrentTweet.entities.media[0]);
                   for (var j=0; j<theCurrentTweet.entities.media.length; j++) {
                     var theCurrentMedium = theCurrentTweet.entities.media[j];
-                    var m = Media.create({
+                    var m = models.Media.create({
                       twitter_id: theCurrentMedium.id_str,
                       url: theCurrentMedium.media_url
                     })
@@ -147,10 +103,12 @@ function gotTweets (err, data, response, startTime) {
                         // console.log("check promise");
                         t.getUser()
                           .then(function (userObject) {
-                            m.setUser(userObject);
+                            userObject.addMedia(m);
+                            // m.setUser(userObject);
                           });
                         m.setRun(runObj);
-                        m.setTweet(t);
+                        t.addMedia(m);
+                        // m.setTweet(t);
                         return m.save(); //promise
                       });
                   }
@@ -164,10 +122,12 @@ function gotTweets (err, data, response, startTime) {
   }
 }
 
-dbReady
+models.start()
   .then(function() {
-    Run.max('max_id')
+    console.log('started');
+    models.Run.max('max_id')
       .then(function(maxId) {
+        console.log('max id:', maxId);
         var runStartTime = new Date();
         // TODO: instead of just getting whatever tweets, we shoudl add since_id to the arguments here, 
         // but where will we get it from? (the max id of the run)

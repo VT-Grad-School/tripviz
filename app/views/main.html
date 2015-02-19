@@ -2,12 +2,13 @@
   <leaflet width="840px" height="600px" markers="markers" layers="layers"></leaflet>
 </div>
 <div class="row">
+  <p>{{markers}}</p>
   <table>
     <tr>
       <th>text</th><th>lat</th><th>long</th>
     </tr>
-    <tr ng-repeat="tweet in tweets.culled.statuses">
-      <td>{{tweet.text}}</td><td>{{tweet.geo.coordinates[0]}}</td><td>{{tweet.geo.coordinates[1]}}</td>
+    <tr ng-repeat="tweet in tweets">
+      <td>{{tweet.text}}</td><td>{{tweet.lat}}</td><td>{{tweet.long}}</td>
     </tr>
   </table>
 </div>
