@@ -7,7 +7,8 @@
     "pg": "^3.3.0",
     "cron": "^1.0.4",
     "sequelize": "^2.0.0-rc8",
-    "mysql": "^2.5.4"
+    "mysql": "^2.5.4",
+    "rsvp": "^3.0.17"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
