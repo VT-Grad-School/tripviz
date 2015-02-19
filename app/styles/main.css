@@ -91,3 +91,7 @@ body {
 .tripviz a {
   cursor: pointer;
 }
+
+.tripviz .leaflet-container img.map-pic {
+  max-width: 200px !important;
+}
