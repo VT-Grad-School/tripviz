@@ -40,6 +40,8 @@ function gotTweets (err, data, response, startTime) {
       //console.log(data.search_metadata);
       //console.log(data.statuses.length);
 
+
+      //if there were more than COUNT tweets, we have to get them COUNT tweets at a time
       if (data.hasOwnProperty('search_metadata') && 
         data.search_metadata.hasOwnProperty('next_results') && 
         data.next_results.length>0) {
