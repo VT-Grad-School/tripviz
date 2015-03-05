@@ -30,10 +30,10 @@ function gotTweets (err, data, response, startTime) {
       end_time: endTime,
       max_id: data.search_metadata.max_id,
       max_id_str: data.search_metadata.max_id_str
-    }).success(function(runObj){
+    }).then(function (runObj) {
 
       if (data.hasOwnProperty('statuses')) {
-      console.log('gotTweets has statuses', data.statuses);
+      // console.log('gotTweets has statuses', data.statuses);
 
       accumulator.push.apply(accumulator, data.statuses);
 
@@ -131,11 +131,11 @@ models.start()
       .then(function(maxId) {
         console.log('max id:', maxId);
         var runStartTime = new Date();
-        // TODO: instead of just getting whatever tweets, we shoudl add since_id to the arguments here, 
-        // but where will we get it from? (the max id of the run)
-        // we shoudl find the most recent Run in the db, mabe by the one 
-        // with maximum max_id or by maximum endTime or something
-        T.get('search/tweets', { q: QUERY, count: COUNT, since_id: maxId}, function(e,d,r){
+        var twitter_search_options = { q: QUERY, count: COUNT}
+        if (maxId) {
+          twitter_search_options['max_id'] = maxId;
+        }
+        T.get('search/tweets', twitter_search_options, function(e,d,r){
           gotTweets(e, d, r, runStartTime);
         });
       });
