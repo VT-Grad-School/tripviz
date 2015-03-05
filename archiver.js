@@ -11,7 +11,7 @@ var T = new Twit({
   access_token_secret:  'UO7ONwgMLhGeRylc45sZw060lXK7RpAygI9hd7oplivAp'
 });
 
-var QUERY = "#gpptripviz123";
+var QUERY = "from:@kpdepauw";
 var COUNT = 100;
 
 var accumulator = [];
@@ -33,93 +33,97 @@ function gotTweets (err, data, response, startTime) {
     }).then(function (runObj) {
 
       if (data.hasOwnProperty('statuses')) {
-      // console.log('gotTweets has statuses', data.statuses);
+        // console.log('gotTweets has statuses', data.statuses);
 
-      accumulator.push.apply(accumulator, data.statuses);
+        accumulator.push.apply(accumulator, data.statuses);
 
-      //console.log(data.search_metadata);
-      //console.log(data.statuses.length);
+        //console.log(data.search_metadata);
+        //console.log(data.statuses.length);
 
 
-      //if there were more than COUNT tweets, we have to get them COUNT tweets at a time
-      if (data.hasOwnProperty('search_metadata') && 
-        data.search_metadata.hasOwnProperty('next_results') && 
-        data.next_results.length>0) {
-        // console.log('next results');
-        // ?max_id=475034902396960767&q=%23gpp14%20since%3A2014-05-27&include_entities=1
-        var maxIdPos = data.next_results.indexOf('max_id=');
-        var endMaxPos = data.next_results.indexOf('&', max_id);
-        var maxId = data.next_results.substr(maxIdPos, endMaxPos-maxIdPos);
-        T.get('search/tweets', { q: query, max_id: maxId}, gotTweets); 
-      }
-      else {
-        // console.log('gotTweets has NO MORE statuses');
-        var tweetsToArchive = withoutRetweetsAndUnlocated(accumulator).statuses;
-        //console.log(tweetsToArchive);
+        //if there were more than COUNT tweets, we have to get them COUNT tweets at a time
+        if (data.hasOwnProperty('search_metadata') && 
+          data.search_metadata.hasOwnProperty('next_results') && 
+          data.next_results.length>0) {
+          // console.log('next results');
+          // ?max_id=475034902396960767&q=%23gpp14%20since%3A2014-05-27&include_entities=1
+          var maxIdPos = data.next_results.indexOf('max_id=');
+          var endMaxPos = data.next_results.indexOf('&', max_id);
+          var maxId = data.next_results.substr(maxIdPos, endMaxPos-maxIdPos);
+          T.get('search/tweets', { q: query, max_id: maxId}, gotTweets); 
+        }
+        else {
+          // console.log('gotTweets has NO MORE statuses');
+          var tweetsToArchive = withoutRetweetsAndUnlocated(accumulator).statuses;
+          //console.log(tweetsToArchive);
 
-        for (var i=0; i<tweetsToArchive.length; i++) {
+          // for (var i=0; i<tweetsToArchive.length; i++) {
+          tweetsToArchive.forEach(function (theCurrentTweet) {
 
-          var theCurrentTweet = tweetsToArchive[i];
-          
-          if (theCurrentTweet.hasOwnProperty('user')) {
-            // console.log('current tweet has user property');
-            models.User.findOrCreate({ where: {twitter_id: theCurrentTweet.user.id_str }})
-              .spread(function(user, created) {
-                if (created) {
-                  user.screenName = theCurrentTweet.user.screen_name;
-                  user.name = theCurrentTweet.user.name;
-                  user.image = theCurrentTweet.user.profile_image_url;
-                  user.setRun(runObj);
-                  return user.save(); //promise
-                } else {
-                  return user;
-                }
-              })
-              .then(function(user) {
-                return models.Tweet.create({
-                  twitter_id: theCurrentTweet.id_str,
-                  text: theCurrentTweet.text,
-                  lat: theCurrentTweet.geo.coordinates[0],
-                  long: theCurrentTweet.geo.coordinates[1],
-                  dateTime: theCurrentTweet.created_at
-                })
-                  .then(function(t){
-                    user.addTweet(t);
-                    t.setRun(runObj);
-                    return t.save(); //promise
-                  });
+            // });
 
-              })
-              .then(function(t) {
-                // console.log(t);
-                if (theCurrentTweet.hasOwnProperty('entities') && theCurrentTweet.entities.hasOwnProperty('media')) {
-                    // console.log("theCurrentTweet.entities.media");
-                    // console.log(theCurrentTweet.entities.media[0]);
-                  for (var j=0; j<theCurrentTweet.entities.media.length; j++) {
-                    var theCurrentMedium = theCurrentTweet.entities.media[j];
-                    var m = models.Media.create({
-                      twitter_id: theCurrentMedium.id_str,
-                      url: theCurrentMedium.media_url
-                    })
-                      .then(function(m){
-                        // console.log("check promise");
-                        t.getUser()
-                          .then(function (userObject) {
-                            userObject.addMedia(m);
-                            // m.setUser(userObject);
-                          });
-                        m.setRun(runObj);
-                        t.addMedia(m);
-                        // m.setTweet(t);
-                        return m.save(); //promise
-                      });
+            
+            if (theCurrentTweet.hasOwnProperty('user')) {
+              // console.log('current tweet has user property');
+              // FIXME: need to use the twitter username or somethign so we don't dupe them
+              models.User.findOrCreate({ where: {twitter_id: theCurrentTweet.user.id_str }})
+                .spread(function(user, created) {
+                  if (created) {
+                    user.screenName = theCurrentTweet.user.screen_name;
+                    user.name = theCurrentTweet.user.name;
+                    user.image = theCurrentTweet.user.profile_image_url;
+                    user.setRun(runObj);
+                    return user.save(); //promise
+                  } else {
+                    return user;
                   }
-                }
-              });
-          }
+                })
+                .then(function (user) {
+                  // console.log(theCurrentTweet);
+                  return models.Tweet.create({
+                    twitter_id: theCurrentTweet.id_str,
+                    text: theCurrentTweet.text,
+                    lat: theCurrentTweet.geo.coordinates[0],
+                    long: theCurrentTweet.geo.coordinates[1],
+                    dateTime: theCurrentTweet.created_at
+                  })
+                    .then(function (t) {
+                      t.setUser(user);
+                      t.setRun(runObj);
+                      return t.save(); //promise
+                    });
+
+                })
+                .then(function (t) {
+                  // console.log(t);
+                  if (theCurrentTweet.hasOwnProperty('entities') && theCurrentTweet.entities.hasOwnProperty('media')) {
+                      // console.log("theCurrentTweet.entities.media");
+                      // console.log(theCurrentTweet.entities.media[0]);
+                    for (var j=0; j<theCurrentTweet.entities.media.length; j++) {
+                      var theCurrentMedium = theCurrentTweet.entities.media[j];
+                      var m = models.Media.create({
+                        twitter_id: theCurrentMedium.id_str,
+                        url: theCurrentMedium.media_url
+                      })
+                        .then(function(m){
+                          // console.log("check promise");
+                          t.getUser()
+                            .then(function (userObject) {
+                              userObject.addMedia(m);
+                              // m.setUser(userObject);
+                            });
+                          m.setRun(runObj);
+                          t.addMedia(m);
+                          // m.setTweet(t);
+                          return m.save(); //promise
+                        });
+                    }
+                  }
+                });
+            }
+          });
         }
       }
-    }
     });
   }
 }
@@ -149,7 +153,9 @@ function withoutRetweetsAndUnlocated (statuses) {
   //console.log(statuses);
   var results = [];
   for (var i=0; i<statuses.length; i++) {
-     //console.log(i);
+    //console.log(i);
+    // console.log(statuses[i].geo);
+    // console.log(!statuses[i].hasOwnProperty('retweeted_status'));
     if (statuses[i].geo!=null && !(statuses[i].hasOwnProperty('retweeted_status'))) {
       // console.log('if');
       results.push(statuses[i]);
@@ -159,5 +165,6 @@ function withoutRetweetsAndUnlocated (statuses) {
       //console.log(statuses[i]);
     }
   }
+  // console.log(results);
   return {statuses: results};
 }
