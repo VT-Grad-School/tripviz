@@ -7,6 +7,7 @@ angular.module('tripvizApp')
     function makeMarkers() {
       return $scope.tweetService.getTweets()
         .then(function (tweets) {
+          $scope.tweets = tweets;
           var markers = {};
           tweets.forEach(function(thisStatus, idx) {
             // conso
