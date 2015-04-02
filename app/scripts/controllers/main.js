@@ -29,6 +29,12 @@ angular.module('tripvizApp')
         $scope.markers = markers;
       });
 
+    $scope.center = {
+      lat: 47.3667,
+      lng: 8.55,
+      zoom: 12
+    };
+
     $scope.layers = {
       baselayers: {
         googleRoadmap: {
