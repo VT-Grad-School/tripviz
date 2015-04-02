@@ -11,7 +11,6 @@ angular.module('tripvizApp').directive('marker', function (Tweets) {
         .then(function (tweets) {
           scope.tweet = tweets[scope.tweetIdx];
         });
-      console.log('hello');
     }
   };
 });
