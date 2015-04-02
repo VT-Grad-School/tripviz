@@ -1,0 +1,1704 @@
+
+{
+  "statuses":  [
+     {
+      "metadata":  {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Wed Feb 04 00:00:34 +0000 2015",
+      "id": 562762600266870800,
+      "id_str": "562762600266870787",
+      "text": "RT @GamesPlusPlus: Jam with us! Registration is live (and free) for #gpp15 in Hoboken, NJ on Sat 3/14 ++ http://t.co/lBPP56ugEb",
+      "source": "<a href="http://twitter.com" rel="nofollow">Twitter Web Client</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user":  {
+        "id": 787902,
+        "id_str": "787902",
+        "name": "J Sam Sheffield",
+        "screen_name": "samnotjohn",
+        "location": "Baltimore, Japan ",
+        "profile_location": null,
+        "description": "Artist, tinkerer, and Interactive Arts faculty member at the Maryland Institute College of Art.",
+        "url": "http://t.co/jRnfGrvNHH",
+        "entities":  {
+          "url":  {
+            "urls":  [
+               {
+                "url": "http://t.co/jRnfGrvNHH",
+                "expanded_url": "http://samsheffield.com",
+                "display_url": "samsheffield.com",
+                "indices":  [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description":  {
+            "urls":  []
+          }
+        },
+        "protected": false,
+        "followers_count": 83,
+        "friends_count": 154,
+        "listed_count": 0,
+        "created_at": "Thu Feb 22 03:28:12 +0000 2007",
+        "favourites_count": 145,
+        "utc_offset": -18000,
+        "time_zone": "Eastern Time (US & Canada)",
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 805,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "222222",
+        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/61452/twttr.gif",
+        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/61452/twttr.gif",
+        "profile_background_tile": true,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/914656024/sunny_normal.png",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/914656024/sunny_normal.png",
+        "profile_link_color": "0000FF",
+        "profile_sidebar_border_color": "87BC44",
+        "profile_sidebar_fill_color": "E0FF92",
+        "profile_text_color": "000000",
+        "profile_use_background_image": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "retweeted_status":  {
+        "metadata":  {
+          "iso_language_code": "en",
+          "result_type": "recent"
+        },
+        "created_at": "Tue Feb 03 20:33:08 +0000 2015",
+        "id": 562710398798147600,
+        "id_str": "562710398798147584",
+        "text": "Jam with us! Registration is live (and free) for #gpp15 in Hoboken, NJ on Sat 3/14 ++ http://t.co/lBPP56ugEb",
+        "source": "<a href="http://itunes.apple.com/us/app/twitter/id409789998?mt=12" rel="nofollow">Twitter for Mac</a>",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user":  {
+          "id": 398131591,
+          "id_str": "398131591",
+          "name": "GamesPlusPlus",
+          "screen_name": "GamesPlusPlus",
+          "location": "NEBR & New Jersey",
+          "profile_location": null,
+          "description": "Game jam in an art gallery ++ Organized by @aandnota and @jeffthompson_",
+          "url": "http://t.co/jogrzIXu32",
+          "entities":  {
+            "url":  {
+              "urls":  [
+                 {
+                  "url": "http://t.co/jogrzIXu32",
+                  "expanded_url": "http://gamesplusplus.org",
+                  "display_url": "gamesplusplus.org",
+                  "indices":  [
+                    0,
+                    22
+                  ]
+                }
+              ]
+            },
+            "description":  {
+              "urls":  []
+            }
+          },
+          "protected": false,
+          "followers_count": 117,
+          "friends_count": 48,
+          "listed_count": 2,
+          "created_at": "Tue Oct 25 16:33:58 +0000 2011",
+          "favourites_count": 44,
+          "utc_offset": null,
+          "time_zone": null,
+          "geo_enabled": false,
+          "verified": false,
+          "statuses_count": 248,
+          "lang": "en",
+          "contributors_enabled": false,
+          "is_translator": false,
+          "is_translation_enabled": false,
+          "profile_background_color": "FFFFFF",
+          "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/448876134/Poster2.png",
+          "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/448876134/Poster2.png",
+          "profile_background_tile": true,
+          "profile_image_url": "http://pbs.twimg.com/profile_images/1896676063/gamesplusplus_twitter_normal.png",
+          "profile_image_url_https": "https://pbs.twimg.com/profile_images/1896676063/gamesplusplus_twitter_normal.png",
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/398131591/1423025082",
+          "profile_link_color": "ED1C24",
+          "profile_sidebar_border_color": "C0DEED",
+          "profile_sidebar_fill_color": "DDEEF6",
+          "profile_text_color": "333333",
+          "profile_use_background_image": true,
+          "default_profile": false,
+          "default_profile_image": false,
+          "following": false,
+          "follow_request_sent": false,
+          "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweet_count": 2,
+        "favorite_count": 0,
+        "entities":  {
+          "hashtags":  [
+             {
+              "text": "gpp15",
+              "indices":  [
+                49,
+                55
+              ]
+            }
+          ],
+          "symbols":  [],
+          "user_mentions":  [],
+          "urls":  [
+             {
+              "url": "http://t.co/lBPP56ugEb",
+              "expanded_url": "http://gamesplusplus.org/",
+              "display_url": "gamesplusplus.org",
+              "indices":  [
+                86,
+                108
+              ]
+            }
+          ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "en"
+      },
+      "retweet_count": 2,
+      "favorite_count": 0,
+      "entities":  {
+        "hashtags":  [
+           {
+            "text": "gpp15",
+            "indices":  [
+              68,
+              74
+            ]
+          }
+        ],
+        "symbols":  [],
+        "user_mentions":  [
+           {
+            "screen_name": "GamesPlusPlus",
+            "name": "GamesPlusPlus",
+            "id": 398131591,
+            "id_str": "398131591",
+            "indices":  [
+              3,
+              17
+            ]
+          }
+        ],
+        "urls":  [
+           {
+            "url": "http://t.co/lBPP56ugEb",
+            "expanded_url": "http://gamesplusplus.org/",
+            "display_url": "gamesplusplus.org",
+            "indices":  [
+              105,
+              127
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+     {
+      "metadata":  {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Tue Feb 03 20:33:17 +0000 2015",
+      "id": 562710436437823500,
+      "id_str": "562710436437823490",
+      "text": "RT @GamesPlusPlus: Jam with us! Registration is live (and free) for #gpp15 in Hoboken, NJ on Sat 3/14 ++ http://t.co/lBPP56ugEb",
+      "source": "<a href="http://itunes.apple.com/us/app/twitter/id409789998?mt=12" rel="nofollow">Twitter for Mac</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user":  {
+        "id": 946532006,
+        "id_str": "946532006",
+        "name": "Jeff Thompson",
+        "screen_name": "jeffthompson_",
+        "location": "New Jersey, USA",
+        "profile_location": null,
+        "description": "Artist, programmer, educator, hacker, curator. Assistant Professor/Director of @ArtTechStevens.",
+        "url": "http://t.co/q3MMeAzGfK",
+        "entities":  {
+          "url":  {
+            "urls":  [
+               {
+                "url": "http://t.co/q3MMeAzGfK",
+                "expanded_url": "http://www.jeffreythompson.org",
+                "display_url": "jeffreythompson.org",
+                "indices":  [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description":  {
+            "urls":  []
+          }
+        },
+        "protected": false,
+        "followers_count": 598,
+        "friends_count": 663,
+        "listed_count": 27,
+        "created_at": "Tue Nov 13 21:15:53 +0000 2012",
+        "favourites_count": 760,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 2684,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "666666",
+        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/796980366/c00be9dd78a5c78fb2b82df8464e6f6d.jpeg",
+        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/796980366/c00be9dd78a5c78fb2b82df8464e6f6d.jpeg",
+        "profile_background_tile": true,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/2845749664/d2756887fe9192c5edff7c28279bbd8b_normal.png",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/2845749664/d2756887fe9192c5edff7c28279bbd8b_normal.png",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/946532006/1354659389",
+        "profile_link_color": "CC9900",
+        "profile_sidebar_border_color": "000000",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "retweeted_status":  {
+        "metadata":  {
+          "iso_language_code": "en",
+          "result_type": "recent"
+        },
+        "created_at": "Tue Feb 03 20:33:08 +0000 2015",
+        "id": 562710398798147600,
+        "id_str": "562710398798147584",
+        "text": "Jam with us! Registration is live (and free) for #gpp15 in Hoboken, NJ on Sat 3/14 ++ http://t.co/lBPP56ugEb",
+        "source": "<a href="http://itunes.apple.com/us/app/twitter/id409789998?mt=12" rel="nofollow">Twitter for Mac</a>",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user":  {
+          "id": 398131591,
+          "id_str": "398131591",
+          "name": "GamesPlusPlus",
+          "screen_name": "GamesPlusPlus",
+          "location": "NEBR & New Jersey",
+          "profile_location": null,
+          "description": "Game jam in an art gallery ++ Organized by @aandnota and @jeffthompson_",
+          "url": "http://t.co/jogrzIXu32",
+          "entities":  {
+            "url":  {
+              "urls":  [
+                 {
+                  "url": "http://t.co/jogrzIXu32",
+                  "expanded_url": "http://gamesplusplus.org",
+                  "display_url": "gamesplusplus.org",
+                  "indices":  [
+                    0,
+                    22
+                  ]
+                }
+              ]
+            },
+            "description":  {
+              "urls":  []
+            }
+          },
+          "protected": false,
+          "followers_count": 117,
+          "friends_count": 48,
+          "listed_count": 2,
+          "created_at": "Tue Oct 25 16:33:58 +0000 2011",
+          "favourites_count": 44,
+          "utc_offset": null,
+          "time_zone": null,
+          "geo_enabled": false,
+          "verified": false,
+          "statuses_count": 248,
+          "lang": "en",
+          "contributors_enabled": false,
+          "is_translator": false,
+          "is_translation_enabled": false,
+          "profile_background_color": "FFFFFF",
+          "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/448876134/Poster2.png",
+          "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/448876134/Poster2.png",
+          "profile_background_tile": true,
+          "profile_image_url": "http://pbs.twimg.com/profile_images/1896676063/gamesplusplus_twitter_normal.png",
+          "profile_image_url_https": "https://pbs.twimg.com/profile_images/1896676063/gamesplusplus_twitter_normal.png",
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/398131591/1423025082",
+          "profile_link_color": "ED1C24",
+          "profile_sidebar_border_color": "C0DEED",
+          "profile_sidebar_fill_color": "DDEEF6",
+          "profile_text_color": "333333",
+          "profile_use_background_image": true,
+          "default_profile": false,
+          "default_profile_image": false,
+          "following": false,
+          "follow_request_sent": false,
+          "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweet_count": 2,
+        "favorite_count": 0,
+        "entities":  {
+          "hashtags":  [
+             {
+              "text": "gpp15",
+              "indices":  [
+                49,
+                55
+              ]
+            }
+          ],
+          "symbols":  [],
+          "user_mentions":  [],
+          "urls":  [
+             {
+              "url": "http://t.co/lBPP56ugEb",
+              "expanded_url": "http://gamesplusplus.org/",
+              "display_url": "gamesplusplus.org",
+              "indices":  [
+                86,
+                108
+              ]
+            }
+          ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "en"
+      },
+      "retweet_count": 2,
+      "favorite_count": 0,
+      "entities":  {
+        "hashtags":  [
+           {
+            "text": "gpp15",
+            "indices":  [
+              68,
+              74
+            ]
+          }
+        ],
+        "symbols":  [],
+        "user_mentions":  [
+           {
+            "screen_name": "GamesPlusPlus",
+            "name": "GamesPlusPlus",
+            "id": 398131591,
+            "id_str": "398131591",
+            "indices":  [
+              3,
+              17
+            ]
+          }
+        ],
+        "urls":  [
+           {
+            "url": "http://t.co/lBPP56ugEb",
+            "expanded_url": "http://gamesplusplus.org/",
+            "display_url": "gamesplusplus.org",
+            "indices":  [
+              105,
+              127
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+     {
+      "metadata":  {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Tue Feb 03 20:33:08 +0000 2015",
+      "id": 562710398798147600,
+      "id_str": "562710398798147584",
+      "text": "Jam with us! Registration is live (and free) for #gpp15 in Hoboken, NJ on Sat 3/14 ++ http://t.co/lBPP56ugEb",
+      "source": "<a href="http://itunes.apple.com/us/app/twitter/id409789998?mt=12" rel="nofollow">Twitter for Mac</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user":  {
+        "id": 398131591,
+        "id_str": "398131591",
+        "name": "GamesPlusPlus",
+        "screen_name": "GamesPlusPlus",
+        "location": "NEBR & New Jersey",
+        "profile_location": null,
+        "description": "Game jam in an art gallery ++ Organized by @aandnota and @jeffthompson_",
+        "url": "http://t.co/jogrzIXu32",
+        "entities":  {
+          "url":  {
+            "urls":  [
+               {
+                "url": "http://t.co/jogrzIXu32",
+                "expanded_url": "http://gamesplusplus.org",
+                "display_url": "gamesplusplus.org",
+                "indices":  [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description":  {
+            "urls":  []
+          }
+        },
+        "protected": false,
+        "followers_count": 117,
+        "friends_count": 48,
+        "listed_count": 2,
+        "created_at": "Tue Oct 25 16:33:58 +0000 2011",
+        "favourites_count": 44,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 248,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "FFFFFF",
+        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/448876134/Poster2.png",
+        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/448876134/Poster2.png",
+        "profile_background_tile": true,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/1896676063/gamesplusplus_twitter_normal.png",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1896676063/gamesplusplus_twitter_normal.png",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/398131591/1423025082",
+        "profile_link_color": "ED1C24",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "retweet_count": 2,
+      "favorite_count": 0,
+      "entities":  {
+        "hashtags":  [
+           {
+            "text": "gpp15",
+            "indices":  [
+              49,
+              55
+            ]
+          }
+        ],
+        "symbols":  [],
+        "user_mentions":  [],
+        "urls":  [
+           {
+            "url": "http://t.co/lBPP56ugEb",
+            "expanded_url": "http://gamesplusplus.org/",
+            "display_url": "gamesplusplus.org",
+            "indices":  [
+              86,
+              108
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+     {
+      "metadata":  {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Tue Feb 03 09:05:06 +0000 2015",
+      "id": 562537249917915140,
+      "id_str": "562537249917915136",
+      "text": "RT @D_Pittman84: I'll be at @GulfPrintPack 2015, will you? http://t.co/EqHUQJtIM7\n #printing #packaging #Dubai @MEPrinter @LabelsNLabeling …",
+      "source": "<a href="http://twitter.com" rel="nofollow">Twitter Web Client</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user":  {
+        "id": 155512696,
+        "id_str": "155512696",
+        "name": "Gulf Print & Pack",
+        "screen_name": "GulfPrintPack",
+        "location": "Dubai",
+        "profile_location": null,
+        "description": "Gulf Print & Pack is the the must-attend event for the commercial and package printing industry in the Middle East and North African (MENA) region.",
+        "url": "http://t.co/EORnHlAcXU",
+        "entities":  {
+          "url":  {
+            "urls":  [
+               {
+                "url": "http://t.co/EORnHlAcXU",
+                "expanded_url": "http://www.gulfprintpack.com/",
+                "display_url": "gulfprintpack.com",
+                "indices":  [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description":  {
+            "urls":  []
+          }
+        },
+        "protected": false,
+        "followers_count": 1026,
+        "friends_count": 1049,
+        "listed_count": 39,
+        "created_at": "Mon Jun 14 10:10:34 +0000 2010",
+        "favourites_count": 2,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 383,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "131516",
+        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/220688949/starback2.jpg",
+        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/220688949/starback2.jpg",
+        "profile_background_tile": true,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/1281568922/gpplogo_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1281568922/gpplogo_normal.jpg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/155512696/1418307715",
+        "profile_link_color": "4F4F4F",
+        "profile_sidebar_border_color": "4F4F4F",
+        "profile_sidebar_fill_color": "F0F0F0",
+        "profile_text_color": "000000",
+        "profile_use_background_image": true,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "retweeted_status":  {
+        "metadata":  {
+          "iso_language_code": "en",
+          "result_type": "recent"
+        },
+        "created_at": "Mon Feb 02 11:25:05 +0000 2015",
+        "id": 562210089424400400,
+        "id_str": "562210089424400384",
+        "text": "I'll be at @GulfPrintPack 2015, will you? http://t.co/EqHUQJtIM7\n #printing #packaging #Dubai @MEPrinter @LabelsNLabeling #GPP15",
+        "source": "<a href="http://twitter.com" rel="nofollow">Twitter Web Client</a>",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user":  {
+          "id": 145387204,
+          "id_str": "145387204",
+          "name": "David Pittman",
+          "screen_name": "D_Pittman84",
+          "location": "London",
+          "profile_location": null,
+          "description": "Package print editor at @TarsusGroup; @ChelseaFC & @Margate_FC football fan. Fair weather darts & WWE fan. Views are my own.",
+          "url": null,
+          "entities":  {
+            "description":  {
+              "urls":  []
+            }
+          },
+          "protected": false,
+          "followers_count": 1588,
+          "friends_count": 1981,
+          "listed_count": 52,
+          "created_at": "Tue May 18 21:27:21 +0000 2010",
+          "favourites_count": 51,
+          "utc_offset": 0,
+          "time_zone": "London",
+          "geo_enabled": true,
+          "verified": false,
+          "statuses_count": 9597,
+          "lang": "en",
+          "contributors_enabled": false,
+          "is_translator": false,
+          "is_translation_enabled": false,
+          "profile_background_color": "131516",
+          "profile_background_image_url": "http://abs.twimg.com/images/themes/theme14/bg.gif",
+          "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme14/bg.gif",
+          "profile_background_tile": true,
+          "profile_image_url": "http://pbs.twimg.com/profile_images/563072127730221057/PmRC_XED_normal.jpeg",
+          "profile_image_url_https": "https://pbs.twimg.com/profile_images/563072127730221057/PmRC_XED_normal.jpeg",
+          "profile_banner_url": "https://pbs.twimg.com/profile_banners/145387204/1421164371",
+          "profile_link_color": "009999",
+          "profile_sidebar_border_color": "EEEEEE",
+          "profile_sidebar_fill_color": "EFEFEF",
+          "profile_text_color": "333333",
+          "profile_use_background_image": true,
+          "default_profile": false,
+          "default_profile_image": false,
+          "following": false,
+          "follow_request_sent": false,
+          "notifications": false
+        },
+        "geo":  {
+          "type": "Point",
+          "coordinates":  [
+            0,
+            0
+          ]
+        },
+        "coordinates":  {
+          "type": "Point",
+          "coordinates":  [
+            0,
+            0
+          ]
+        },
+        "place":  {
+          "id": "09ba692cbddfc92c",
+          "url": "https://api.twitter.com/1.1/geo/id/09ba692cbddfc92c.json",
+          "place_type": "city",
+          "name": "Hammersmith",
+          "full_name": "Hammersmith, London",
+          "country_code": "GB",
+          "country": "United Kingdom",
+          "contained_within":  [],
+          "bounding_box":  {
+            "type": "Polygon",
+            "coordinates":  [
+               [
+                 [
+                  -0.254563,
+                  51.463873
+                ],
+                 [
+                  -0.177653,
+                  51.463873
+                ],
+                 [
+                  -0.177653,
+                  51.532901
+                ],
+                 [
+                  -0.254563,
+                  51.532901
+                ]
+              ]
+            ]
+          },
+          "attributes":  {}
+        },
+        "contributors": null,
+        "retweet_count": 1,
+        "favorite_count": 1,
+        "entities":  {
+          "hashtags":  [
+             {
+              "text": "printing",
+              "indices":  [
+                66,
+                75
+              ]
+            },
+             {
+              "text": "packaging",
+              "indices":  [
+                76,
+                86
+              ]
+            },
+             {
+              "text": "Dubai",
+              "indices":  [
+                87,
+                93
+              ]
+            },
+             {
+              "text": "GPP15",
+              "indices":  [
+                122,
+                128
+              ]
+            }
+          ],
+          "symbols":  [],
+          "user_mentions":  [
+             {
+              "screen_name": "GulfPrintPack",
+              "name": "Gulf Print & Pack",
+              "id": 155512696,
+              "id_str": "155512696",
+              "indices":  [
+                11,
+                25
+              ]
+            },
+             {
+              "screen_name": "MEPrinter",
+              "name": "ME Printer",
+              "id": 287769930,
+              "id_str": "287769930",
+              "indices":  [
+                94,
+                104
+              ]
+            },
+             {
+              "screen_name": "LabelsNLabeling",
+              "name": "Labels & Labeling",
+              "id": 90965088,
+              "id_str": "90965088",
+              "indices":  [
+                105,
+                121
+              ]
+            }
+          ],
+          "urls":  [
+             {
+              "url": "http://t.co/EqHUQJtIM7",
+              "expanded_url": "http://tinyurl.com/p2cknbp",
+              "display_url": "tinyurl.com/p2cknbp",
+              "indices":  [
+                42,
+                64
+              ]
+            }
+          ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "en"
+      },
+      "retweet_count": 1,
+      "favorite_count": 0,
+      "entities":  {
+        "hashtags":  [
+           {
+            "text": "printing",
+            "indices":  [
+              83,
+              92
+            ]
+          },
+           {
+            "text": "packaging",
+            "indices":  [
+              93,
+              103
+            ]
+          },
+           {
+            "text": "Dubai",
+            "indices":  [
+              104,
+              110
+            ]
+          },
+           {
+            "text": "GPP15",
+            "indices":  [
+              139,
+              140
+            ]
+          }
+        ],
+        "symbols":  [],
+        "user_mentions":  [
+           {
+            "screen_name": "D_Pittman84",
+            "name": "David Pittman",
+            "id": 145387204,
+            "id_str": "145387204",
+            "indices":  [
+              3,
+              15
+            ]
+          },
+           {
+            "screen_name": "GulfPrintPack",
+            "name": "Gulf Print & Pack",
+            "id": 155512696,
+            "id_str": "155512696",
+            "indices":  [
+              28,
+              42
+            ]
+          },
+           {
+            "screen_name": "MEPrinter",
+            "name": "ME Printer",
+            "id": 287769930,
+            "id_str": "287769930",
+            "indices":  [
+              111,
+              121
+            ]
+          },
+           {
+            "screen_name": "LabelsNLabeling",
+            "name": "Labels & Labeling",
+            "id": 90965088,
+            "id_str": "90965088",
+            "indices":  [
+              122,
+              138
+            ]
+          }
+        ],
+        "urls":  [
+           {
+            "url": "http://t.co/EqHUQJtIM7",
+            "expanded_url": "http://tinyurl.com/p2cknbp",
+            "display_url": "tinyurl.com/p2cknbp",
+            "indices":  [
+              59,
+              81
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+     {
+      "metadata":  {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Mon Feb 02 11:25:05 +0000 2015",
+      "id": 562210089424400400,
+      "id_str": "562210089424400384",
+      "text": "I'll be at @GulfPrintPack 2015, will you? http://t.co/EqHUQJtIM7\n #printing #packaging #Dubai @MEPrinter @LabelsNLabeling #GPP15",
+      "source": "<a href="http://twitter.com" rel="nofollow">Twitter Web Client</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user":  {
+        "id": 145387204,
+        "id_str": "145387204",
+        "name": "David Pittman",
+        "screen_name": "D_Pittman84",
+        "location": "London",
+        "profile_location": null,
+        "description": "Package print editor at @TarsusGroup; @ChelseaFC & @Margate_FC football fan. Fair weather darts & WWE fan. Views are my own.",
+        "url": null,
+        "entities":  {
+          "description":  {
+            "urls":  []
+          }
+        },
+        "protected": false,
+        "followers_count": 1588,
+        "friends_count": 1981,
+        "listed_count": 52,
+        "created_at": "Tue May 18 21:27:21 +0000 2010",
+        "favourites_count": 51,
+        "utc_offset": 0,
+        "time_zone": "London",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 9597,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "131516",
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme14/bg.gif",
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme14/bg.gif",
+        "profile_background_tile": true,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/563072127730221057/PmRC_XED_normal.jpeg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/563072127730221057/PmRC_XED_normal.jpeg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/145387204/1421164371",
+        "profile_link_color": "009999",
+        "profile_sidebar_border_color": "EEEEEE",
+        "profile_sidebar_fill_color": "EFEFEF",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo":  {
+        "type": "Point",
+        "coordinates":  [
+          0,
+          0
+        ]
+      },
+      "coordinates":  {
+        "type": "Point",
+        "coordinates":  [
+          0,
+          0
+        ]
+      },
+      "place":  {
+        "id": "09ba692cbddfc92c",
+        "url": "https://api.twitter.com/1.1/geo/id/09ba692cbddfc92c.json",
+        "place_type": "city",
+        "name": "Hammersmith",
+        "full_name": "Hammersmith, London",
+        "country_code": "GB",
+        "country": "United Kingdom",
+        "contained_within":  [],
+        "bounding_box":  {
+          "type": "Polygon",
+          "coordinates":  [
+             [
+               [
+                -0.254563,
+                51.463873
+              ],
+               [
+                -0.177653,
+                51.463873
+              ],
+               [
+                -0.177653,
+                51.532901
+              ],
+               [
+                -0.254563,
+                51.532901
+              ]
+            ]
+          ]
+        },
+        "attributes":  {}
+      },
+      "contributors": null,
+      "retweet_count": 1,
+      "favorite_count": 1,
+      "entities":  {
+        "hashtags":  [
+           {
+            "text": "printing",
+            "indices":  [
+              66,
+              75
+            ]
+          },
+           {
+            "text": "packaging",
+            "indices":  [
+              76,
+              86
+            ]
+          },
+           {
+            "text": "Dubai",
+            "indices":  [
+              87,
+              93
+            ]
+          },
+           {
+            "text": "GPP15",
+            "indices":  [
+              122,
+              128
+            ]
+          }
+        ],
+        "symbols":  [],
+        "user_mentions":  [
+           {
+            "screen_name": "GulfPrintPack",
+            "name": "Gulf Print & Pack",
+            "id": 155512696,
+            "id_str": "155512696",
+            "indices":  [
+              11,
+              25
+            ]
+          },
+           {
+            "screen_name": "MEPrinter",
+            "name": "ME Printer",
+            "id": 287769930,
+            "id_str": "287769930",
+            "indices":  [
+              94,
+              104
+            ]
+          },
+           {
+            "screen_name": "LabelsNLabeling",
+            "name": "Labels & Labeling",
+            "id": 90965088,
+            "id_str": "90965088",
+            "indices":  [
+              105,
+              121
+            ]
+          }
+        ],
+        "urls":  [
+           {
+            "url": "http://t.co/EqHUQJtIM7",
+            "expanded_url": "http://tinyurl.com/p2cknbp",
+            "display_url": "tinyurl.com/p2cknbp",
+            "indices":  [
+              42,
+              64
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+     {
+      "metadata":  {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Sun Feb 01 13:16:01 +0000 2015",
+      "id": 561875621144723460,
+      "id_str": "561875621144723456",
+      "text": "RT @kpdepauw: Impt info for @gppvt Bologna Process is ‘making an impact worldwide’ – CIQG - University World News: http://t.co/wvuXnT936s",
+      "source": "<a href="http://twitter.com/#!/download/ipad" rel="nofollow">Twitter for iPad</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user":  {
+        "id": 592656953,
+        "id_str": "592656953",
+        "name": "Global Perspectives",
+        "screen_name": "GPPVT",
+        "location": "",
+        "profile_location": null,
+        "description": "Preparing globally-conscious future faculty members. A component of Virginia Tech's Transformative Graduate Education (TGE) initiative.",
+        "url": "http://t.co/RCUPfQEpPD",
+        "entities":  {
+          "url":  {
+            "urls":  [
+               {
+                "url": "http://t.co/RCUPfQEpPD",
+                "expanded_url": "http://graduateschool.vt.edu/GPP",
+                "display_url": "graduateschool.vt.edu/GPP",
+                "indices":  [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description":  {
+            "urls":  []
+          }
+        },
+        "protected": false,
+        "followers_count": 171,
+        "friends_count": 136,
+        "listed_count": 3,
+        "created_at": "Mon May 28 11:51:12 +0000 2012",
+        "favourites_count": 215,
+        "utc_offset": -18000,
+        "time_zone": "Eastern Time (US & Canada)",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 841,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "C0DEED",
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/344513261570930090/2cc0dda356bc271d032c382a3817709e_normal.jpeg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/344513261570930090/2cc0dda356bc271d032c382a3817709e_normal.jpeg",
+        "profile_link_color": "0084B4",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "default_profile": true,
+        "default_profile_image": false,
+        "following": true,
+        "follow_request_sent": false,
+        "notifications": true
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "retweeted_status":  {
+        "metadata":  {
+          "iso_language_code": "en",
+          "result_type": "recent"
+        },
+        "created_at": "Sun Feb 01 13:10:45 +0000 2015",
+        "id": 561874295979520000,
+        "id_str": "561874295979520000",
+        "text": "Impt info for @gppvt Bologna Process is ‘making an impact worldwide’ – CIQG - University World News: http://t.co/wvuXnT936s",
+        "source": "<a href="http://mobile.twitter.com" rel="nofollow">Mobile Web</a>",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user":  {
+          "id": 542672291,
+          "id_str": "542672291",
+          "name": "Karen DePauw",
+          "screen_name": "kpdepauw",
+          "location": "",
+          "profile_location": null,
+          "description": "Vice President & Dean for Graduate Education, Virginia Tech",
+          "url": null,
+          "entities":  {
+            "description":  {
+              "urls":  []
+            }
+          },
+          "protected": false,
+          "followers_count": 722,
+          "friends_count": 328,
+          "listed_count": 16,
+          "created_at": "Sun Apr 01 16:41:57 +0000 2012",
+          "favourites_count": 445,
+          "utc_offset": null,
+          "time_zone": null,
+          "geo_enabled": true,
+          "verified": false,
+          "statuses_count": 1676,
+          "lang": "en",
+          "contributors_enabled": false,
+          "is_translator": false,
+          "is_translation_enabled": false,
+          "profile_background_color": "C0DEED",
+          "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+          "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+          "profile_background_tile": false,
+          "profile_image_url": "http://pbs.twimg.com/profile_images/378800000834677245/edf8f30f16b7d8711f81ad03bdc51592_normal.jpeg",
+          "profile_image_url_https": "https://pbs.twimg.com/profile_images/378800000834677245/edf8f30f16b7d8711f81ad03bdc51592_normal.jpeg",
+          "profile_link_color": "0084B4",
+          "profile_sidebar_border_color": "C0DEED",
+          "profile_sidebar_fill_color": "DDEEF6",
+          "profile_text_color": "333333",
+          "profile_use_background_image": true,
+          "default_profile": true,
+          "default_profile_image": false,
+          "following": true,
+          "follow_request_sent": false,
+          "notifications": true
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweet_count": 1,
+        "favorite_count": 1,
+        "entities":  {
+          "hashtags":  [],
+          "symbols":  [],
+          "user_mentions":  [
+             {
+              "screen_name": "GPPVT",
+              "name": "Global Perspectives",
+              "id": 592656953,
+              "id_str": "592656953",
+              "indices":  [
+                14,
+                20
+              ]
+            }
+          ],
+          "urls":  [
+             {
+              "url": "http://t.co/wvuXnT936s",
+              "expanded_url": "http://www.universityworldnews.com/article.php?story=20150130162701188#.VM4lhm8n-NA.twitter",
+              "display_url": "universityworldnews.com/article.php?st…",
+              "indices":  [
+                101,
+                123
+              ]
+            }
+          ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "en"
+      },
+      "retweet_count": 1,
+      "favorite_count": 0,
+      "entities":  {
+        "hashtags":  [],
+        "symbols":  [],
+        "user_mentions":  [
+           {
+            "screen_name": "kpdepauw",
+            "name": "Karen DePauw",
+            "id": 542672291,
+            "id_str": "542672291",
+            "indices":  [
+              3,
+              12
+            ]
+          },
+           {
+            "screen_name": "GPPVT",
+            "name": "Global Perspectives",
+            "id": 592656953,
+            "id_str": "592656953",
+            "indices":  [
+              28,
+              34
+            ]
+          }
+        ],
+        "urls":  [
+           {
+            "url": "http://t.co/wvuXnT936s",
+            "expanded_url": "http://www.universityworldnews.com/article.php?story=20150130162701188#.VM4lhm8n-NA.twitter",
+            "display_url": "universityworldnews.com/article.php?st…",
+            "indices":  [
+              115,
+              137
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+     {
+      "metadata":  {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Thu Jan 29 13:54:37 +0000 2015",
+      "id": 560798168448008200,
+      "id_str": "560798168448008192",
+      "text": "Also need to work with tweets with media for gpptripviz #gpp15 http://t.co/njEXmQSXXh",
+      "source": "<a href="http://twitter.com/download/iphone" rel="nofollow">Twitter for iPhone</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user":  {
+        "id": 15250294,
+        "id_str": "15250294",
+        "name": "Michael Stewart",
+        "screen_name": "thegreatmichael",
+        "location": "Christiansburg, VA",
+        "profile_location": null,
+        "description": "I am from Charlotte, NC. I am currently @ VT studying Human Computer Interaction. I went to undergrad at UNC where I worked on Assistive Tech with Dr G Bishop.",
+        "url": "http://t.co/HeupQ0Y3Kc",
+        "entities":  {
+          "url":  {
+            "urls":  [
+               {
+                "url": "http://t.co/HeupQ0Y3Kc",
+                "expanded_url": "http://people.cs.vt.edu/tgm",
+                "display_url": "people.cs.vt.edu/tgm",
+                "indices":  [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description":  {
+            "urls":  []
+          }
+        },
+        "protected": false,
+        "followers_count": 130,
+        "friends_count": 182,
+        "listed_count": 4,
+        "created_at": "Fri Jun 27 01:18:25 +0000 2008",
+        "favourites_count": 14,
+        "utc_offset": -18000,
+        "time_zone": "Quito",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 580,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "352726",
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme5/bg.gif",
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme5/bg.gif",
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/1980722982/tgm_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1980722982/tgm_normal.jpg",
+        "profile_link_color": "D02B55",
+        "profile_sidebar_border_color": "829D5E",
+        "profile_sidebar_fill_color": "A6DE35",
+        "profile_text_color": "3E4415",
+        "profile_use_background_image": true,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo":  {
+        "type": "Point",
+        "coordinates":  [
+          37.19853373,
+          -80.40868437
+        ]
+      },
+      "coordinates":  {
+        "type": "Point",
+        "coordinates":  [
+          -80.40868437,
+          37.19853373
+        ]
+      },
+      "place":  {
+        "id": "820684853e0f1eb6",
+        "url": "https://api.twitter.com/1.1/geo/id/820684853e0f1eb6.json",
+        "place_type": "city",
+        "name": "Blacksburg",
+        "full_name": "Blacksburg, VA",
+        "country_code": "US",
+        "country": "United States",
+        "contained_within":  [],
+        "bounding_box":  {
+          "type": "Polygon",
+          "coordinates":  [
+             [
+               [
+                -80.47611,
+                37.185195
+              ],
+               [
+                -80.381618,
+                37.185195
+              ],
+               [
+                -80.381618,
+                37.273387
+              ],
+               [
+                -80.47611,
+                37.273387
+              ]
+            ]
+          ]
+        },
+        "attributes":  {}
+      },
+      "contributors": null,
+      "retweet_count": 0,
+      "favorite_count": 1,
+      "entities":  {
+        "hashtags":  [
+           {
+            "text": "gpp15",
+            "indices":  [
+              56,
+              62
+            ]
+          }
+        ],
+        "symbols":  [],
+        "user_mentions":  [],
+        "urls":  [],
+        "media":  [
+           {
+            "id": 560798165985935360,
+            "id_str": "560798165985935361",
+            "indices":  [
+              63,
+              85
+            ],
+            "media_url": "http://pbs.twimg.com/media/B8ha9fJIQAEvb1v.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/B8ha9fJIQAEvb1v.jpg",
+            "url": "http://t.co/njEXmQSXXh",
+            "display_url": "pic.twitter.com/njEXmQSXXh",
+            "expanded_url": "http://twitter.com/thegreatmichael/status/560798168448008192/photo/1",
+            "type": "photo",
+            "sizes":  {
+              "small":  {
+                "w": 340,
+                "h": 255,
+                "resize": "fit"
+              },
+              "medium":  {
+                "w": 600,
+                "h": 450,
+                "resize": "fit"
+              },
+              "thumb":  {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "large":  {
+                "w": 1024,
+                "h": 768,
+                "resize": "fit"
+              }
+            }
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+     {
+      "metadata":  {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Thu Jan 29 13:50:21 +0000 2015",
+      "id": 560797098237784060,
+      "id_str": "560797098237784064",
+      "text": "Working on gpptripviz with James & Zawad for #gpp15",
+      "source": "<a href="http://twitter.com/download/iphone" rel="nofollow">Twitter for iPhone</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user":  {
+        "id": 15250294,
+        "id_str": "15250294",
+        "name": "Michael Stewart",
+        "screen_name": "thegreatmichael",
+        "location": "Christiansburg, VA",
+        "profile_location": null,
+        "description": "I am from Charlotte, NC. I am currently @ VT studying Human Computer Interaction. I went to undergrad at UNC where I worked on Assistive Tech with Dr G Bishop.",
+        "url": "http://t.co/HeupQ0Y3Kc",
+        "entities":  {
+          "url":  {
+            "urls":  [
+               {
+                "url": "http://t.co/HeupQ0Y3Kc",
+                "expanded_url": "http://people.cs.vt.edu/tgm",
+                "display_url": "people.cs.vt.edu/tgm",
+                "indices":  [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description":  {
+            "urls":  []
+          }
+        },
+        "protected": false,
+        "followers_count": 130,
+        "friends_count": 182,
+        "listed_count": 4,
+        "created_at": "Fri Jun 27 01:18:25 +0000 2008",
+        "favourites_count": 14,
+        "utc_offset": -18000,
+        "time_zone": "Quito",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 580,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "352726",
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme5/bg.gif",
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme5/bg.gif",
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/1980722982/tgm_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/1980722982/tgm_normal.jpg",
+        "profile_link_color": "D02B55",
+        "profile_sidebar_border_color": "829D5E",
+        "profile_sidebar_fill_color": "A6DE35",
+        "profile_text_color": "3E4415",
+        "profile_use_background_image": true,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo":  {
+        "type": "Point",
+        "coordinates":  [
+          37.19875249,
+          -80.40900602
+        ]
+      },
+      "coordinates":  {
+        "type": "Point",
+        "coordinates":  [
+          -80.40900602,
+          37.19875249
+        ]
+      },
+      "place":  {
+        "id": "820684853e0f1eb6",
+        "url": "https://api.twitter.com/1.1/geo/id/820684853e0f1eb6.json",
+        "place_type": "city",
+        "name": "Blacksburg",
+        "full_name": "Blacksburg, VA",
+        "country_code": "US",
+        "country": "United States",
+        "contained_within":  [],
+        "bounding_box":  {
+          "type": "Polygon",
+          "coordinates":  [
+             [
+               [
+                -80.47611,
+                37.185195
+              ],
+               [
+                -80.381618,
+                37.185195
+              ],
+               [
+                -80.381618,
+                37.273387
+              ],
+               [
+                -80.47611,
+                37.273387
+              ]
+            ]
+          ]
+        },
+        "attributes":  {}
+      },
+      "contributors": null,
+      "retweet_count": 0,
+      "favorite_count": 0,
+      "entities":  {
+        "hashtags":  [
+           {
+            "text": "gpp15",
+            "indices":  [
+              49,
+              55
+            ]
+          }
+        ],
+        "symbols":  [],
+        "user_mentions":  [],
+        "urls":  []
+      },
+      "favorited": false,
+      "retweeted": false,
+      "lang": "en"
+    }
+  ],
+  "search_metadata":  {
+    "completed_in": 0.022,
+    "max_id": 562762600266870800,
+    "max_id_str": "562762600266870787",
+    "query": "from%3A%40GPPVT+OR+to%3A%40GPPVT+OR+%23gpp15",
+    "refresh_url": "?since_id=562762600266870787&q=from%3A%40GPPVT%20OR%20to%3A%40GPPVT%20OR%20%23gpp15&include_entities=1",
+    "count": 15,
+    "since_id": 0,
+    "since_id_str": "0"
+  }
+}
