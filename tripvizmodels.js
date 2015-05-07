@@ -8,8 +8,8 @@ var Sequelize = require('sequelize'),
 var Tweet = sequelize.define('tweet', {
   twitter_id: Sequelize.STRING,
   text: Sequelize.STRING,
-  lat: Sequelize.FLOAT(11,8),
-  long: Sequelize.FLOAT(11,8),
+  lat: Sequelize.FLOAT(13,10),
+  long: Sequelize.FLOAT(13,10),
   dateTime: Sequelize.DATE
 });
 
