@@ -25,6 +25,9 @@ angular.module('tripvizApp').service('Locations', function ($http, $q) {
       },
       {
         name: 'Lugano'
+      },
+      {
+        name: 'Other'
       }
     ];
     // console.log(hardCodedLocations);

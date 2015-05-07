@@ -33,6 +33,7 @@ function getLoc (tweet) {
   if (locForTweet.length === 0 && OTHER_LOC) {
     locForTweet = [OTHER_LOC];
   }
+  return locForTweet;
 }
 
 function gotTweets (err, data, response, startTime) {
@@ -113,7 +114,7 @@ function gotTweets (err, data, response, startTime) {
                     })
                     .then(function (t) {
                       var locs = getLoc(t);
-                      if (locs.length > 0) {
+                      if (locs && locs.hasOwnProperty('length') && locs.length > 0) {
                         t.setLocation(locs[0]);
                         return t.save();
                       } else {

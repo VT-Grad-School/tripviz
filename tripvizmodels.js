@@ -27,8 +27,8 @@ var User = sequelize.define('user', {
 
 var Location = sequelize.define('location', {
   name: Sequelize.STRING,
-  lat: Sequelize.FLOAT(11,8),
-  long: Sequelize.FLOAT(11,8),
+  lat: Sequelize.FLOAT(13,10),
+  long: Sequelize.FLOAT(13,10),
   radius_km: Sequelize.FLOAT(6,3)
 });
 
@@ -80,57 +80,71 @@ exports.start = function () {
           return RSVP.all([
             Location.findOrCreate({
               where: {
-                name: 'Zürich',
-                lat: 47.382918,
-                long: 8.529849,
+                name: 'Zürich'
+              },
+              defaults: {
+                lat: 47.38291800,
+                long: 8.52984900,
                 radius_km: 10
               }
             }),
             Location.findOrCreate({
               where: {
-                name: 'Basel',
-                lat: 47.556758,
-                long: 7.596520,
+                name: 'Basel'
+              },
+              defaults: {
+                lat: 47.55675800,
+                long: 7.59652000,
                 radius_km: 5
               }
             }),
             Location.findOrCreate({
               where: {
-                name: 'Riva San Vitale',
-                lat: 45.905471,
-                long: 8.970628,
+                name: 'Riva San Vitale'
+              },
+              defaults: {
+                lat: 45.90547100,
+                long: 8.97062800,
                 radius_km: 2
               }
             }),
             Location.findOrCreate({
               where: {
-                name: 'Milano',
-                lat: 45.466165,
-                long: 9.184856,
+                name: 'Milano'
+              },
+              defaults: {
+                lat: 45.46616500,
+                long: 9.18485600,
                 radius_km: 7
               }
             }),
             Location.findOrCreate({
               where: {
-                name: 'Carona',
-                lat: 45.957871,
-                long: 8.936136,
+                name: 'Carona'
+              },
+              defaults: {
+                lat: 45.95787100,
+                long: 8.93613600,
                 radius_km: 3
               }
             }),
             Location.findOrCreate({
               where: {
-                name: 'Manno',
-                lat: 46.030863,
-                long: 8.919862,
+                name: 'Manno'
+              },
+              defaults: {
+                lat: 46.03086300,
+                long: 8.91986200,
                 radius_km: 2
               }
             }),
             Location.findOrCreate({
               where: {
-                name: 'Lugano',
-                lat: 46.004779,
-                long: 8.946396,
+                name: 'Lugano'
+              },
+              defaults: {
+                lat: 46.00477900,
+                long: 8.94639600,
                 radius_km: 2
               }
             }),
