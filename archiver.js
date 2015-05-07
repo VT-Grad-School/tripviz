@@ -157,36 +157,39 @@ function gotTweets (err, data, response, startTime) {
   }
 }
 
-models.start()
-  .then(function() {
-    console.log('started');
-    models.Location.findAll()
-      .then(function (locs) {
-        LOCATIONS = locs;
-        OTHER_LOC = locs.filter(function (loc) {
-          return loc.name === 'Other';
-        })[0];
-      })
-      .then( function () {
-        models.Run.max('max_id')
-          .then(function(maxId) {
-            console.log('max id:', maxId);
-            var runStartTime = new Date();
-            var twitter_search_options = { q: QUERY, count: COUNT}
-            if (maxId) {
-              twitter_search_options['since_id'] = maxId;
-            }
-            T.get('search/tweets', twitter_search_options, function(e,d,r){
-              gotTweets(e, d, r, runStartTime);
+function begin () {
+  models.start()
+    .then(function() {
+      console.log('started');
+      models.Location.findAll()
+        .then(function (locs) {
+          LOCATIONS = locs;
+          OTHER_LOC = locs.filter(function (loc) {
+            return loc.name === 'Other';
+          })[0];
+        })
+        .then( function () {
+          models.Run.max('max_id')
+            .then(function(maxId) {
+              console.log('max id:', maxId);
+              var runStartTime = new Date();
+              var twitter_search_options = { q: QUERY, count: COUNT}
+              if (maxId) {
+                twitter_search_options['since_id'] = maxId;
+              }
+              T.get('search/tweets', twitter_search_options, function(e,d,r){
+                gotTweets(e, d, r, runStartTime);
+              });
             });
-          });
 
-      });
-  })
-  .catch(function(error){
-    console.error("error syncing db", error);
-  });
-  
+        });
+    })
+    .catch(function(error){
+      console.error("error syncing db", error);
+    });
+}
+
+begin(); 
 
 function withoutRetweetsAndUnlocated (statuses) {
   //console.log(statuses);
@@ -206,4 +209,13 @@ function withoutRetweetsAndUnlocated (statuses) {
   }
   // console.log(results);
   return {statuses: results};
+}
+
+console.log('started textem', new Date());
+var CronJob = require('cron').CronJob;
+if (CronJob) {
+  new CronJob('00 */5 * * * *', function () {
+    console.log('starting cronned job');
+    begin();
+  }, null, true, 'America/New_York');
 }
