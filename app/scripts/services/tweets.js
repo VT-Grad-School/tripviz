@@ -9,13 +9,13 @@ angular.module('tripvizApp').service('Tweets', function ($http, $q) {
     } else {
       $http.get('/tweets')
         .success(function (tweets) {
-          // console.log(tweets);
+          console.log(tweets);
           // we should attach locations to these before returning them
           // console.log('tweets with loc', tweets);
-          tweets = tweets.map(function (tweet) {
-            tweet.location = "Zürich";
-            return tweet;
-          });
+          // tweets = tweets.map(function (tweet) {
+          //   tweet.location = "Zürich";
+          //   return tweet;
+          // });
           // console.log('tweets with loc', tweets);
           deferred.resolve(tweets);
         })
@@ -33,8 +33,9 @@ angular.module('tripvizApp').service('Tweets', function ($http, $q) {
     this.getTweets()
       .then(function (returnedTweets) {
         deferred.resolve(returnedTweets.filter(function (tweet) {
-          // console.log(tweet);
-          return tweet.location === location;
+          console.log(tweet);
+          console.log(location);
+          return tweet.location.name === location;
         }));
       });
     return deferred.promise;

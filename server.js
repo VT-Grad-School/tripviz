@@ -14,7 +14,7 @@ var RSVP = require('rsvp');               // helpful promise library
 app.get('/tweets', function(req, res) {
 
   models.Tweet.findAll({
-    include: [models.User, models.Media],
+    include: [models.User, models.Media, models.Location],
   })
     .then(function (tweets) {
       res.status(200).json(tweets);

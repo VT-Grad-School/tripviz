@@ -100,10 +100,25 @@ body {
   width: 300px;
 }
 
-.col-md-4
-{
-    height: 600px;
-    width: 200px;
+/*.col-md-4*/
+.tweet-col {
+    height: 75vh;
+    /* don't change col-md-4  */
+    /*width: 200px; */
     overflow: scroll;
-    
+}
+
+.tweet-img {
+  margin: auto;
+  max-width: 325px;
+  max-height: 200px;
+  display: block;
+}
+
+.tweet-text {
+  margin: auto;
+}
+
+.tweet-profile {
+  max-width: 24px;
 }

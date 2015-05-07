@@ -1,0 +1,9 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <img ng-src="{{medium.url}}" ng-repeat="medium in tweet.media" class="tweet-img">
+    <p class="tweet-text">{{tweet.text}}</p>
+  </div>
+  <div class="panel-footer">
+    <a ng-href="https://twitter.com/{{tweet.user.screenName}}"><img class="tweet-profile" ng-src="{{tweet.user.image}}" alt="twitter profile image for {{tweet.user.screenName}} {{tweet.user.name}}">@{{tweet.user.screenName}}</a>
+  </div>
+</div>

@@ -15,8 +15,8 @@ angular.module('tripvizApp')
             markers[thisStatus.id].lat = thisStatus.lat;
             markers[thisStatus.id].lng = thisStatus.long;
             // markers[thisStatus.id].message = thisStatus.text;
-            markers[thisStatus.id].message = '<marker tweet-idx="'+idx+'"></marker>';
-            markers[thisStatus.id].focus = true;
+            // markers[thisStatus.id].message = '<marker tweet-idx="'+idx+'"></marker>';
+            // markers[thisStatus.id].focus = true;
             markers[thisStatus.id].draggable = false;
             markers[thisStatus.id].tweet = thisStatus;
           });

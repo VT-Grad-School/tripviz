@@ -1,7 +1,7 @@
 var Twit = require('twit');
 var CronJob = require('cron').CronJob;
 var RSVP = require('rsvp');
-
+var LatLon = require('geodesy').LatLonEllipsoidal;
 var models = require('./tripvizmodels');
 
 var T = new Twit({
@@ -11,10 +11,29 @@ var T = new Twit({
   access_token_secret:  'UO7ONwgMLhGeRylc45sZw060lXK7RpAygI9hd7oplivAp'
 });
 
-var QUERY = "from:@kpdepauw";
+var QUERY = "from:@thegreatmichael";
 var COUNT = 100;
 
 var accumulator = [];
+
+var LOCATIONS = [];
+
+var OTHER_LOC = false;
+
+function mToKm (m) {
+  return m/1000.0;
+}
+
+function getLoc (tweet) {
+  var locForTweet = LOCATIONS.filter(function (loc) {
+    var locAsLatLon = new LatLon(loc.lat, loc.long);
+    var tweetLoc = new LatLon(tweet.lat, tweet.long);
+    return mToKm(tweetLoc.distanceTo(locAsLatLon)) <= loc.radius_km;
+  });
+  if (locForTweet.length === 0 && OTHER_LOC) {
+    locForTweet = [OTHER_LOC];
+  }
+}
 
 function gotTweets (err, data, response, startTime) {
   var endTime = new Date();
@@ -91,6 +110,15 @@ function gotTweets (err, data, response, startTime) {
                       t.setUser(user);
                       t.setRun(runObj);
                       return t.save(); //promise
+                    })
+                    .then(function (t) {
+                      var locs = getLoc(t);
+                      if (locs.length > 0) {
+                        t.setLocation(locs[0]);
+                        return t.save();
+                      } else {
+                        return t;
+                      }
                     });
 
                 })
@@ -131,17 +159,27 @@ function gotTweets (err, data, response, startTime) {
 models.start()
   .then(function() {
     console.log('started');
-    models.Run.max('max_id')
-      .then(function(maxId) {
-        console.log('max id:', maxId);
-        var runStartTime = new Date();
-        var twitter_search_options = { q: QUERY, count: COUNT}
-        if (maxId) {
-          twitter_search_options['max_id'] = maxId;
-        }
-        T.get('search/tweets', twitter_search_options, function(e,d,r){
-          gotTweets(e, d, r, runStartTime);
-        });
+    models.Location.findAll()
+      .then(function (locs) {
+        LOCATIONS = locs;
+        OTHER_LOC = locs.filter(function (loc) {
+          return loc.name === 'Other';
+        })[0];
+      })
+      .then( function () {
+        models.Run.max('max_id')
+          .then(function(maxId) {
+            console.log('max id:', maxId);
+            var runStartTime = new Date();
+            var twitter_search_options = { q: QUERY, count: COUNT}
+            if (maxId) {
+              twitter_search_options['max_id'] = maxId;
+            }
+            T.get('search/tweets', twitter_search_options, function(e,d,r){
+              gotTweets(e, d, r, runStartTime);
+            });
+          });
+
       });
   })
   .catch(function(error){

@@ -8,7 +8,8 @@
     "cron": "^1.0.4",
     "sequelize": "^2.0.0-rc8",
     "mysql": "^2.5.4",
-    "rsvp": "^3.0.17"
+    "rsvp": "^3.0.17",
+    "geodesy": "^1.0.1"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
