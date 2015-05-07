@@ -174,7 +174,7 @@ models.start()
             var runStartTime = new Date();
             var twitter_search_options = { q: QUERY, count: COUNT}
             if (maxId) {
-              twitter_search_options['max_id'] = maxId;
+              twitter_search_options['since_id'] = maxId;
             }
             T.get('search/tweets', twitter_search_options, function(e,d,r){
               gotTweets(e, d, r, runStartTime);
