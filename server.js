@@ -11,7 +11,7 @@ var RSVP = require('rsvp');               // helpful promise library
 
 // if someone makes a HTTP GET request to our server/tweets then this 
 // function will attempt to send them all the tweets, or will send an error message
-app.get('/tweets', function(req, res) {
+app.get('/tweets', function (req, res) {
 
   models.Tweet.findAll({
     include: [models.User, models.Media, models.Location],
@@ -22,6 +22,15 @@ app.get('/tweets', function(req, res) {
     .catch(function (error) {
       res.status(404).send(error);
     });
+});
+
+app.get('/locations', function (req, res) {
+  models.Location.findAll({
+    order: 'id'
+  })
+    .then(function(locations) {
+      res.status(200).json(locations);
+    })
 });
 
 // if someone just makes a file request, get the files from the <project directory>/app folder

@@ -85,7 +85,7 @@ exports.start = function () {
               defaults: {
                 lat: 47.38291800,
                 long: 8.52984900,
-                radius_km: 10
+                radius_km: 3
               }
             }),
             Location.findOrCreate({
@@ -95,7 +95,7 @@ exports.start = function () {
               defaults: {
                 lat: 47.55675800,
                 long: 7.59652000,
-                radius_km: 5
+                radius_km: 3
               }
             }),
             Location.findOrCreate({

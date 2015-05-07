@@ -5,7 +5,7 @@ angular
 
   .config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home/locations');
-    $urlRouterProvider.when('/home/:location', ['$match', 'Tweets', '$state', function ($match, Tweets, $state) {
+    $urlRouterProvider.when('/home/:location', ['$match', 'Tweets', '$state', '$rootScope', function ($match, Tweets, $state, $rootScope) {
       console.log($match);
       if ($match.location === 'locations') {
         $state.go('home.locations');
@@ -13,6 +13,7 @@ angular
         Tweets.getTweetsForLoc($match.location).then(function (tweets) {
           console.log(tweets[0]);
           if (tweets && tweets.length > 0) {
+            $rootScope.$emit('center', $match.location);
             console.log(tweets[0].id);
             $state.go('home.tweet', {tweet:tweets[0].id, location:$match.location});
           }

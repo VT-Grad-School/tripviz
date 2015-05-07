@@ -33,8 +33,8 @@ angular.module('tripvizApp').service('Tweets', function ($http, $q) {
     this.getTweets()
       .then(function (returnedTweets) {
         deferred.resolve(returnedTweets.filter(function (tweet) {
-          console.log(tweet);
-          console.log(location);
+          // console.log(tweet);
+          // console.log(location);
           return tweet.location.name === location;
         }));
       });
