@@ -28,6 +28,6 @@ app.get('/tweets', function(req, res) {
 app.use(express.static(__dirname + '/app'));
 
 // start the server on port 3000
-var server = app.listen(3000, function() {
+var server = app.listen(3010, function() {
     console.log('Listening on port %d', server.address().port);
 });
