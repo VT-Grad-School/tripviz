@@ -70,11 +70,12 @@ function gotTweets (err, data, response, startTime) {
           var maxIdPos = data.next_results.indexOf('max_id=');
           var endMaxPos = data.next_results.indexOf('&', max_id);
           var maxId = data.next_results.substr(maxIdPos, endMaxPos-maxIdPos);
-          T.get('search/tweets', { q: query, max_id: maxId}, gotTweets); 
+          T.get('search/tweets', { q: query, since_id: maxId}, gotTweets); 
         }
         else {
           // console.log('gotTweets has NO MORE statuses');
           var tweetsToArchive = withoutRetweetsAndUnlocated(accumulator).statuses;
+          accumulator = [];
           //console.log(tweetsToArchive);
 
           // for (var i=0; i<tweetsToArchive.length; i++) {
@@ -169,7 +170,7 @@ function begin () {
           })[0];
         })
         .then( function () {
-          models.Run.max('max_id')
+          models.Run.max('max_id_str')
             .then(function(maxId) {
               console.log('max id:', maxId);
               var runStartTime = new Date();
