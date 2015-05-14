@@ -216,7 +216,7 @@ function withoutRetweetsAndUnlocated (statuses) {
 console.log('started textem', new Date());
 var CronJob = require('cron').CronJob;
 if (CronJob) {
-  new CronJob('00 */5 * * * *', function () {
+  new CronJob('00 */1 * * * *', function () {
     console.log('starting cronned job');
     begin();
   }, null, true, 'America/New_York');
