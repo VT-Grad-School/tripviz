@@ -83,9 +83,9 @@ exports.start = function () {
                 name: 'Zürich'
               },
               defaults: {
-                lat: 47.38291800,
-                long: 8.52984900,
-                radius_km: 3
+                lat: 47.38021933437073,
+                long: 8.528480529785156,
+                radius_km: 4.2
               }
             }),
             Location.findOrCreate({
