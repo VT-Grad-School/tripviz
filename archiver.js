@@ -53,7 +53,7 @@ function gotTweets (err, data, response, startTime) {
     }).then(function (runObj) {
 
       if (data.hasOwnProperty('statuses')) {
-        // console.log('gotTweets has statuses', data.statuses);
+        console.log('gotTweets has statuses', data.statuses.length);
 
         accumulator.push.apply(accumulator, data.statuses);
 
@@ -177,6 +177,7 @@ function begin () {
               if (maxId) {
                 twitter_search_options['since_id'] = maxId;
               }
+              console.log('include the max id in the search?', twitter_search_options);
               T.get('search/tweets', twitter_search_options, function(e,d,r){
                 gotTweets(e, d, r, runStartTime);
               });
