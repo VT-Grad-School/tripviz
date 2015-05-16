@@ -6,6 +6,12 @@ angular.module('tripvizApp')
 
     var mapScope = $scope;
 
+    var DEFAULT_ZOOM = {
+      "lat": 27.059125784374068,
+      "lng": -33.3984375,
+      "zoom": 3
+    };
+
     function makeMarkers() {
       return $scope.tweetService.getTweets()
         .then(function (tweets) {
@@ -31,11 +37,11 @@ angular.module('tripvizApp')
         $scope.markers = markers;
       });
 
-    $scope.center = {
-      lat: 47.3667,
-      lng: 8.55,
-      zoom: 12
-    };
+    $scope.center = DEFAULT_ZOOM;
+
+    $rootScope.$on('re-center', function (evt, args) {
+      mapScope.center = DEFAULT_ZOOM;
+    });
 
     $rootScope.$on('center', function (evt, args) {
       console.log('noticed center evt', evt, args);
@@ -45,7 +51,8 @@ angular.module('tripvizApp')
         mapScope.center = {
           lat: loc.lat,
           lng: loc.long,
-          zoom: Locations.zoomFromRadius(loc.radius_km)
+          // zoom: Locations.zoomFromRadius(loc.radius_km)
+          zoom: loc.zoom
         }
       });
     });

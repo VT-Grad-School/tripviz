@@ -22,15 +22,17 @@ angular.module('tripvizApp').service('Locations', function ($http, $q) {
     return deferred.promise;
   };
 
-  this.zoomFromRadius = function (r) {
-    if (r > 3) {
-      return 12;
-    } else if (r > 2) {
-      return 14;
-    } else {
-      return 17;
-    }
-  };
+  // this.zoomFromRadius = function (r) {
+  //   if (r > 3) {
+  //     return 12;
+  //   } else if (r > 2) {
+  //     return 14;
+  //   } else if (r > 1) {
+  //     return 16;
+  //   } else {
+  //     return 17;
+  //   }
+  // };
 
   this.getLocByName = function (locName) {
     var deferred = $q.defer();

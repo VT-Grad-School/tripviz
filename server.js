@@ -8,6 +8,7 @@ var RSVP = require('rsvp');               // helpful promise library
 //       logging: function(){}
 //     });                                   //connection to database
 
+var PORT = 3010;
 
 // if someone makes a HTTP GET request to our server/tweets then this 
 // function will attempt to send them all the tweets, or will send an error message
@@ -31,12 +32,22 @@ app.get('/locations', function (req, res) {
     .then(function(locations) {
       res.status(200).json(locations);
     })
+    .catch(function(error) {
+      console.error('locations not found!');
+      res.status(500).send(error);
+    })
 });
 
 // if someone just makes a file request, get the files from the <project directory>/app folder
 app.use(express.static(__dirname + '/app'));
 
 // start the server on port 3000
-var server = app.listen(3010, function() {
-    console.log('Listening on port %d', server.address().port);
-});
+models.start()
+  .then(function () {
+    app.listen(PORT, function() {
+      console.log('Listening on port %d', PORT);
+    });
+  })
+  .catch(function (error) {
+    console.error(error);
+  });

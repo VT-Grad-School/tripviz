@@ -29,7 +29,8 @@ var Location = sequelize.define('location', {
   name: Sequelize.STRING,
   lat: Sequelize.FLOAT(13,10),
   long: Sequelize.FLOAT(13,10),
-  radius_km: Sequelize.FLOAT(6,3)
+  radius_km: Sequelize.FLOAT(6,3),
+  zoom: Sequelize.INTEGER
 });
 
 var Run = sequelize.define('run', {
@@ -77,86 +78,105 @@ exports.start = function () {
         console.log('got this far 2.5');
         return Location.sync().then(function () {
           console.log('synced loc');
-          return RSVP.all([
-            Location.findOrCreate({
+          return Location.findOrCreate({
+            where: {
+              name: 'Blacksburg'
+            },
+            defaults: {
+              lat: 37.214950492426,
+              long: -80.42129516601562,
+              radius_km: 2.8,
+              zoom: 14
+            }
+          }).then(function() {
+            return Location.findOrCreate({
               where: {
                 name: 'Zürich'
               },
               defaults: {
                 lat: 47.38021933437073,
                 long: 8.528480529785156,
-                radius_km: 4.2
+                radius_km: 4.2,
+                zoom: 12
               }
-            }),
-            Location.findOrCreate({
+            });
+          }).then(function () {
+            return Location.findOrCreate({
               where: {
                 name: 'Basel'
               },
               defaults: {
                 lat: 47.55675800,
                 long: 7.59652000,
-                radius_km: 3
+                radius_km: 3,
+                zoom: 14
               }
-            }),
-            Location.findOrCreate({
-              where: {
-                name: 'Riva San Vitale'
-              },
-              defaults: {
-                lat: 45.90547100,
-                long: 8.97062800,
-                radius_km: 2
-              }
-            }),
-            Location.findOrCreate({
+            });
+          }).then(function () {
+            return Location.findOrCreate({
               where: {
                 name: 'Milano'
               },
               defaults: {
-                lat: 45.46616500,
-                long: 9.18485600,
-                radius_km: 7
+                lat: 45.475118970435176,
+                long: 9.191780090332031,
+                radius_km: 7,
+                zoom: 14
               }
-            }),
-            Location.findOrCreate({
+            });
+          }).then(function () {
+            return Location.findOrCreate({
               where: {
                 name: 'Carona'
               },
               defaults: {
-                lat: 45.95787100,
-                long: 8.93613600,
-                radius_km: 3
+                lat: 45.954446666914905,
+                long: 8.939545154571533,
+                radius_km: 3,
+                zoom: 16
               }
-            }),
-            Location.findOrCreate({
+            });
+          }).then(function () {
+            return Location.findOrCreate({
               where: {
                 name: 'Manno'
               },
               defaults: {
-                lat: 46.03086300,
-                long: 8.91986200,
-                radius_km: 2
+                lat: 46.03171282089657,
+                long: 8.925619125366211,
+                radius_km: 2,
+                zoom: 15
               }
-            }),
-            Location.findOrCreate({
+            });
+          }).then(function () {
+            return Location.findOrCreate({
               where: {
                 name: 'Lugano'
               },
               defaults: {
-                lat: 46.00477900,
-                long: 8.94639600,
-                radius_km: 2
+                lat: 46.00492115408297,
+                long: 8.952655792236326,
+                radius_km: 2,
+                zoom: 15
               }
-            }),
-            Location.findOrCreate({
+            });
+          }).then(function () {
+            return Location.findOrCreate({
               where: {
                 name: 'Other'
+              },
+              defaults: {
+                lat: 46.57019056757178,
+                long: 8.6187744140625,
+                radius_km: 160,
+                zoom: 9
               }
-            })
-          ])
-            .then(function () {
-              console.log('created all locs');
             });
+          }).then(function () {
+            console.log('created all locs');
+          }).catch(function (error) {
+            console.error('error creating locs', error);
+          });
         });
       })
       .then(function () {

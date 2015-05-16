@@ -28,6 +28,7 @@ function getLoc (tweet) {
   var locForTweet = LOCATIONS.filter(function (loc) {
     var locAsLatLon = new LatLon(loc.lat, loc.long);
     var tweetLoc = new LatLon(tweet.lat, tweet.long);
+    // console.log(loc.name, locAsLatLon, tweetLoc, tweetLoc.distanceTo(locAsLatLon));
     return mToKm(tweetLoc.distanceTo(locAsLatLon)) <= loc.radius_km;
   });
   if (locForTweet.length === 0 && OTHER_LOC) {
