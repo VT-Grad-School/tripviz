@@ -83,7 +83,25 @@ function gotTweets (err, data, response, startTime) {
           tweetsToArchive.forEach(function (theCurrentTweet) {
 
             // });
-
+            var tweetLat = 0;
+            var tweetLong = 0;
+            if (theCurrentTweet.geo.coordinates[0] === theCurrentTweet.geo.coordinates[1] 
+              && theCurrentTweet.geo.coordinates[0] === 0
+              && theCurrentTweet.hasOwnProperty('place')
+              && theCurrentTweet.place.hasOwnProperty('bounding_box')
+              && theCurrentTweet.place.bounding_box.hasOwnProperty('coordinates')) {
+                // loop over points in coords and avg them
+                theCurrentTweet.place.bounding_box.coordinates[0].forEach(function (coords) {
+                  tweetLat += coords[1];
+                  tweetLong += coords[0];
+                });
+                tweetLat = tweetLat / theCurrentTweet.place.bounding_box.coordinates[0].length;
+                tweetLong = tweetLong / theCurrentTweet.place.bounding_box.coordinates[0].length;
+            } else if (theCurrentTweet.hasOwnProperty('geo') && theCurrentTweet.geo.hasOwnProperty('coordinates')) {
+              tweetLat = theCurrentTweet.geo.coordinates[0];
+              tweetLong = theCurrentTweet.geo.coordinates[1];
+            } else {
+            }
             
             if (theCurrentTweet.hasOwnProperty('user')) {
               // console.log('current tweet has user property');
@@ -105,8 +123,8 @@ function gotTweets (err, data, response, startTime) {
                   return models.Tweet.create({
                     twitter_id: theCurrentTweet.id_str,
                     text: theCurrentTweet.text,
-                    lat: theCurrentTweet.geo.coordinates[0],
-                    long: theCurrentTweet.geo.coordinates[1],
+                    lat: tweetLat,
+                    long: tweetLong,
                     dateTime: theCurrentTweet.created_at
                   })
                     .then(function (t) {
@@ -136,7 +154,7 @@ function gotTweets (err, data, response, startTime) {
                         twitter_id: theCurrentMedium.id_str,
                         url: theCurrentMedium.media_url
                       })
-                        .then(function(m){
+                        .then(function (m) {
                           // console.log("check promise");
                           t.getUser()
                             .then(function (userObject) {
@@ -155,6 +173,9 @@ function gotTweets (err, data, response, startTime) {
           });
         }
       }
+
+      console.log('archiver run complete', new Date());
+
     });
   }
 }
@@ -201,7 +222,7 @@ function withoutRetweetsAndUnlocated (statuses) {
     //console.log(i);
     // console.log(statuses[i].geo);
     // console.log(!statuses[i].hasOwnProperty('retweeted_status'));
-    if (statuses[i].geo!=null && !(statuses[i].hasOwnProperty('retweeted_status'))) {
+    if (statuses[i].geo != null && !(statuses[i].hasOwnProperty('retweeted_status'))) {
       // console.log('if');
       results.push(statuses[i]);
     }
@@ -218,7 +239,7 @@ console.log('started textem', new Date());
 var CronJob = require('cron').CronJob;
 if (CronJob) {
   new CronJob('00 */1 * * * *', function () {
-    console.log('starting cronned job');
+    console.log('starting cronned job', new Date());
     begin();
   }, null, true, 'America/New_York');
 }
