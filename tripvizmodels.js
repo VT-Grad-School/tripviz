@@ -166,10 +166,10 @@ exports.start = function () {
                 name: 'Other'
               },
               defaults: {
-                lat: 46.57019056757178,
-                long: 8.6187744140625,
+                lat: 27.059125784374068,
+                long: -33.3984375,
                 radius_km: 160,
-                zoom: 9
+                zoom: 3
               }
             });
           }).then(function () {
