@@ -235,7 +235,7 @@ function withoutRetweetsAndUnlocated (statuses) {
   return {statuses: results};
 }
 
-console.log('started textem', new Date());
+console.log('started ARCHIVER', new Date());
 var CronJob = require('cron').CronJob;
 if (CronJob) {
   new CronJob('00 */1 * * * *', function () {
