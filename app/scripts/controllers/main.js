@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('tripvizApp')
-  .controller('MainCtrl', function ($scope, $http, Tweets, $rootScope, Locations) {
+  .controller('MainCtrl', function ($scope, $http, Tweets, $rootScope, Locations, leafletEvents, $state, $location) {
     $scope.tweetService = Tweets;
 
     var mapScope = $scope;
@@ -55,6 +55,18 @@ angular.module('tripvizApp')
           zoom: loc.zoom
         }
       });
+    });
+
+    $scope.events = {
+      markers: {
+         enable: leafletEvents.getAvailableMarkerEvents(),
+      }
+    };
+
+    $scope.$on('leafletDirectiveMarker.click', function(evt, args) {
+      $rootScope.$emit('center', $scope.markers[args.markerName].tweet.location.name);
+      $state.go('home.location', {location:$scope.markers[args.markerName].tweet.location.name});
+
     });
 
     $scope.layers = {
