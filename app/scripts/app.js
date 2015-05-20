@@ -8,7 +8,7 @@ angular
     $urlRouterProvider.when('/home/:location', ['$match', 'Tweets', '$state', '$rootScope', function ($match, Tweets, $state, $rootScope) {
       console.log($match);
       if ($match.location === 'locations') {
-        $rootScope.$emit('re-center', $match.location);
+        $rootScope.$emit('re-center');
         $state.go('home.locations');
       } else {
         // Tweets.getTweetsForLoc($match.location).then(function (tweets) {
@@ -34,8 +34,8 @@ angular
           url:'/locations',
           templateUrl: 'views/locations.html',
           controller: 'TweetCtrl',
-          onEnter: function () {
-
+          onEnter: function ($rootScope) {
+            $rootScope.$emit('re-center');
           }
         })
         .state('home.location', {

@@ -4,7 +4,7 @@ angular.module('tripvizApp').directive('tweet', function (Tweets) {
     scope: {
       tweet: '='
     },
-    replace: false,
+    replace: true,
     templateUrl: 'views/directives/tweet.html',
     link: function (scope, elem, attrs) {
       // Tweets.getTweets()

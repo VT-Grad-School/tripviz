@@ -11,7 +11,7 @@
     "angular-cookies": "1.2.15",
     "angular-sanitize": "1.2.15",
     "angular-route": "1.2.15",
-    "angular-leaflet-directive": "~0.7.7",
+    "angular-leaflet-directive": "git@github.com:thegreatmichael/angular-leaflet-directive.git",
     "leaflet-plugins": "~1.1.2",
     "ui-router": "~0.2.13",
     "angular-bootstrap": "~0.12.1"

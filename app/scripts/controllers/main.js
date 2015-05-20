@@ -64,9 +64,31 @@ angular.module('tripvizApp')
     };
 
     $scope.$on('leafletDirectiveMarker.click', function(evt, args) {
-      $rootScope.$emit('center', $scope.markers[args.markerName].tweet.location.name);
-      $state.go('home.location', {location:$scope.markers[args.markerName].tweet.location.name});
+      console.log(args);
+      console.log(mapScope.markers);
+      console.log(mapScope.markers[args.markerName]);
+      var model = false;
+      if (args.hasOwnProperty('markerName')) {
+        model = mapScope.markers[args.markerName];
+      } else {
+        model = args.model;
+      }
+      $rootScope.$emit('center', model.tweet.location.name);
+      $state.go('home.location', {location:model.tweet.location.name});
+    });
 
+    $scope.$on('leafletDirectiveMarker.touchend', function(evt, args) {
+      console.log(args);
+      console.log(mapScope.markers);
+      console.log(model);
+      var model = false;
+      if (args.hasOwnProperty('markerName')) {
+        model = mapScope.markers[args.markerName];
+      } else {
+        model = args.model;
+      }
+      $rootScope.$emit('center', model.tweet.location.name);
+      $state.go('home.location', {location:model.tweet.location.name});
     });
 
     $scope.layers = {
