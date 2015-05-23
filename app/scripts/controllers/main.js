@@ -19,14 +19,16 @@ angular.module('tripvizApp')
           var markers = {};
           tweets.forEach(function(thisStatus, idx) {
             // conso
-            markers[thisStatus.id] = {};
-            markers[thisStatus.id].lat = thisStatus.lat;
-            markers[thisStatus.id].lng = thisStatus.long;
-            // markers[thisStatus.id].message = thisStatus.text;
-            // markers[thisStatus.id].message = '<marker tweet-idx="'+idx+'"></marker>';
-            // markers[thisStatus.id].focus = true;
-            markers[thisStatus.id].draggable = false;
-            markers[thisStatus.id].tweet = thisStatus;
+            if (thisStatus.hasOwnProperty('lat')) {
+              markers[thisStatus.id] = {};
+              markers[thisStatus.id].lat = thisStatus.lat;
+              markers[thisStatus.id].lng = thisStatus.long;
+              // markers[thisStatus.id].message = thisStatus.text;
+              // markers[thisStatus.id].message = '<marker tweet-idx="'+idx+'"></marker>';
+              // markers[thisStatus.id].focus = true;
+              markers[thisStatus.id].draggable = false;
+              markers[thisStatus.id].tweet = thisStatus;
+            }
           });
           return markers;
         });

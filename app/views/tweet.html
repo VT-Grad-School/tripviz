@@ -1,15 +1,4 @@
 <div>
   <p><a href="#/"><i class="fa fa-arrow-left"></i></a>{{city}}</p>
-  <!-- <p></p> -->
-  <!-- <p>Should be the tweet feed</p> -->
-  <ol>
-    <tweet ng-repeat="tweet in feed" tweet="tweet"></tweet>
-  	<!-- <li ng-repeat="tweet in feed" class="tweet">
-  		<p>{{tweet.text}}</p>
-  		<p><img ng-src="{{tweet.user.image}}" alt="">{{tweet.user.screenName}} {{tweet.user.name}}</p>
-  		<ul>
-  			<li ng-repeat="item in tweet.media"><img ng-src="{{item.url}}" alt=""></li>
-  		</ul>
-  	</li> -->
-  </ol>
+  <tweet ng-repeat="tweet in feed" tweet="tweet"></tweet>
 </div>

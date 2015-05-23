@@ -25,14 +25,25 @@ function mToKm (m) {
 }
 
 function getLoc (tweet) {
-  var locForTweet = LOCATIONS.filter(function (loc) {
-    var locAsLatLon = new LatLon(loc.lat, loc.long);
-    var tweetLoc = new LatLon(tweet.lat, tweet.long);
-    // console.log(loc.name, locAsLatLon, tweetLoc, tweetLoc.distanceTo(locAsLatLon));
-    return mToKm(tweetLoc.distanceTo(locAsLatLon)) <= loc.radius_km;
-  });
-  if (locForTweet.length === 0 && OTHER_LOC) {
+  console.log(tweet);
+  console.log(tweet.hasOwnProperty('lat'));
+  if (tweet.lat) {
+    console.log('tweet.lat truthy');
+  }
+  console.log(tweet.hasOwnProperty('long'));
+  var locForTweet = [];
+  if (!tweet.lat) {
     locForTweet = [OTHER_LOC];
+  } else {
+    locForTweet = LOCATIONS.filter(function (loc) {
+      var locAsLatLon = new LatLon(loc.lat, loc.long);
+      var tweetLoc = new LatLon(tweet.lat, tweet.long);
+      // console.log(loc.name, locAsLatLon, tweetLoc, tweetLoc.distanceTo(locAsLatLon));
+      return mToKm(tweetLoc.distanceTo(locAsLatLon)) <= loc.radius_km;
+    });
+    if (locForTweet.length === 0 && OTHER_LOC) {
+      locForTweet = [OTHER_LOC];
+    }
   }
   return locForTweet;
 }
@@ -81,11 +92,14 @@ function gotTweets (err, data, response, startTime) {
 
           // for (var i=0; i<tweetsToArchive.length; i++) {
           tweetsToArchive.forEach(function (theCurrentTweet) {
+            // if (theCurrentTweet.geo == null) {
 
+            // }
             // });
             var tweetLat = 0;
             var tweetLong = 0;
-            if (theCurrentTweet.geo.coordinates[0] === theCurrentTweet.geo.coordinates[1] 
+            if (theCurrentTweet.hasOwnProperty('geo') && theCurrentTweet.geo != null
+              &&theCurrentTweet.geo.coordinates[0] === theCurrentTweet.geo.coordinates[1] 
               && theCurrentTweet.geo.coordinates[0] === 0
               && theCurrentTweet.hasOwnProperty('place')
               && theCurrentTweet.place.hasOwnProperty('bounding_box')
@@ -97,7 +111,7 @@ function gotTweets (err, data, response, startTime) {
                 });
                 tweetLat = tweetLat / theCurrentTweet.place.bounding_box.coordinates[0].length;
                 tweetLong = tweetLong / theCurrentTweet.place.bounding_box.coordinates[0].length;
-            } else if (theCurrentTweet.hasOwnProperty('geo') && theCurrentTweet.geo.hasOwnProperty('coordinates')) {
+            } else if (theCurrentTweet.hasOwnProperty('geo') && theCurrentTweet.geo != null && theCurrentTweet.geo.hasOwnProperty('coordinates')) {
               tweetLat = theCurrentTweet.geo.coordinates[0];
               tweetLong = theCurrentTweet.geo.coordinates[1];
             } else {
@@ -120,13 +134,16 @@ function gotTweets (err, data, response, startTime) {
                 })
                 .then(function (user) {
                   // console.log(theCurrentTweet);
-                  return models.Tweet.create({
+                  var newTweetOptions = {
                     twitter_id: theCurrentTweet.id_str,
                     text: theCurrentTweet.text,
-                    lat: tweetLat,
-                    long: tweetLong,
                     dateTime: theCurrentTweet.created_at
-                  })
+                  };
+                  if (theCurrentTweet.hasOwnProperty('geo') && theCurrentTweet.geo != null) {
+                    newTweetOptions.lat = tweetLat;
+                    newTweetOptions.long = tweetLong;
+                  }
+                  return models.Tweet.create(newTweetOptions)
                     .then(function (t) {
                       t.setUser(user);
                       t.setRun(runObj);
@@ -222,7 +239,8 @@ function withoutRetweetsAndUnlocated (statuses) {
     //console.log(i);
     // console.log(statuses[i].geo);
     // console.log(!statuses[i].hasOwnProperty('retweeted_status'));
-    if (statuses[i].geo != null && !(statuses[i].hasOwnProperty('retweeted_status'))) {
+    // if (statuses[i].geo != null && !(statuses[i].hasOwnProperty('retweeted_status'))) {
+    if (!statuses[i].hasOwnProperty('retweeted_status')) {
       // console.log('if');
       results.push(statuses[i]);
     }
