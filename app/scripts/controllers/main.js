@@ -1,20 +1,19 @@
 'use strict';
 
 angular.module('tripvizApp')
-  .controller('MainCtrl', function ($scope, $http, Tweets, $rootScope, Locations, leafletEvents, $state, $location) {
+  .controller('MainCtrl', function ($scope, $http, Tweets, $rootScope, Locations, leafletEvents, $state, $location, Map) {
     $scope.tweetService = Tweets;
 
     var mapScope = $scope;
 
-    var DEFAULT_ZOOM = {
-      "lat": 27.059125784374068,
-      "lng": -33.3984375,
-      "zoom": 3
-    };
+    $scope.mapService = Map;
+
+    Map.mapScope = $scope;
 
     function makeMarkers() {
       return $scope.tweetService.getTweets()
         .then(function (tweets) {
+          console.log(tweets);
           $scope.tweets = tweets;
           var markers = {};
           tweets.forEach(function(thisStatus, idx) {
@@ -34,30 +33,15 @@ angular.module('tripvizApp')
         });
     }
 
+    $scope.mapWidth = 840;
+    $scope.mapHeight = 600;
+
     makeMarkers()
       .then(function(markers) {
         $scope.markers = markers;
       });
 
-    $scope.center = DEFAULT_ZOOM;
-
-    $rootScope.$on('re-center', function (evt, args) {
-      mapScope.center = DEFAULT_ZOOM;
-    });
-
-    $rootScope.$on('center', function (evt, args) {
-      console.log('noticed center evt', evt, args);
-      Locations.getLocByName(args).then(function (loc) {
-        console.log('got the loc!', loc);
-        console.log('got the loc!', loc.lat, loc.lng);
-        mapScope.center = {
-          lat: loc.lat,
-          lng: loc.long,
-          // zoom: Locations.zoomFromRadius(loc.radius_km)
-          zoom: loc.zoom
-        }
-      });
-    });
+    $scope.center = Map.DEFAULT_ZOOM;
 
     $scope.events = {
       markers: {

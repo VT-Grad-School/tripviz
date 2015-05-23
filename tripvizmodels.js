@@ -166,7 +166,7 @@ exports.start = function () {
                 name: 'Other'
               },
               defaults: {
-                lat: 27.059125784374068,
+                lat: 38.41055825094609,
                 long: -33.3984375,
                 radius_km: 160,
                 zoom: 3

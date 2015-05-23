@@ -5,7 +5,7 @@ angular
 
   .config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home/locations');
-    $urlRouterProvider.when('/home/:location', ['$match', 'Tweets', '$state', '$rootScope', function ($match, Tweets, $state, $rootScope) {
+    $urlRouterProvider.when('/home/:location', ['$match', 'Tweets', '$state', '$rootScope', '$stateParams', function ($match, Tweets, $state, $rootScope, $stateParams) {
       console.log($match);
       if ($match.location === 'locations') {
         $rootScope.$emit('re-center');
@@ -14,7 +14,7 @@ angular
         // Tweets.getTweetsForLoc($match.location).then(function (tweets) {
           // console.log(tweets[0]);
           // if (tweets && tweets.length > 0) {
-            $rootScope.$emit('center', $match.location);
+            // $rootScope.$emit('center', $match.location);
             // console.log(tweets[0].id);
             // $state.go('home.tweet', {tweet:tweets[0].id, location:$match.location});
             $state.go('home.location', {location:$match.location});
@@ -42,7 +42,11 @@ angular
           // params: [],
           url:'/location/:location',
           templateUrl: 'views/tweet.html',
-          controller: 'TweetCtrl'
+          controller: 'TweetCtrl',
+          onEnter: function ($rootScope, $stateParams) {
+            console.log($stateParams);
+            $rootScope.$emit('center', $stateParams.location);
+          }
         })
         .state('home.tweet', {
           // params: [],
