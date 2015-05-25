@@ -4,6 +4,6 @@
     <p class="tweet-text">{{tweet.text}}</p>
   </div>
   <div class="panel-footer">
-    <a ng-href="https://twitter.com/{{tweet.user.screenName}}"><img class="tweet-profile" ng-src="{{tweet.user.image}}" alt="twitter profile image for {{tweet.user.screenName}} {{tweet.user.name}}">@{{tweet.user.screenName}}</a>
+    <a ng-href="https://twitter.com/{{tweet.user.screenName}}"><img class="tweet-profile" ng-src="{{tweet.user.image}}" alt="twitter profile image for {{tweet.user.screenName}} {{tweet.user.name}}">@{{tweet.user.screenName}}</a><span class="pull-right">{{tweet.dateTime | date : 'MM/dd/yy@h:mma'}}</span>
   </div>
 </div>

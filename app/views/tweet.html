@@ -1,4 +1,4 @@
 <div>
   <p><a href="#/"><i class="fa fa-arrow-left"></i></a>{{city}}</p>
-  <tweet ng-repeat="tweet in feed" tweet="tweet"></tweet>
+  <tweet ng-repeat="tweet in feed | orderBy : '-dateTime'" tweet="tweet"></tweet>
 </div>

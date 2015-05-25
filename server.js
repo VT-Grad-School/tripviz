@@ -16,6 +16,7 @@ app.get('/tweets', function (req, res) {
 
   models.Tweet.findAll({
     include: [models.User, models.Media, models.Location],
+    sort: 'dateTime DESC'
   })
     .then(function (tweets) {
       res.status(200).json(tweets);
