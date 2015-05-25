@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <img ng-src="{{medium.url}}" ng-repeat="medium in tweet.media" class="tweet-img">
+    <a ng-href="{{medium.url}}:large" ng-repeat="medium in tweet.media"><img ng-src="{{medium.url}}" class="tweet-img"></a>
     <p class="tweet-text">{{tweet.text}}</p>
   </div>
   <div class="panel-footer">
