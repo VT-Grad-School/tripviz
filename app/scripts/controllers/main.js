@@ -18,7 +18,7 @@ angular.module('tripvizApp')
           var markers = {};
           tweets.forEach(function(thisStatus, idx) {
             // conso
-            if (thisStatus.hasOwnProperty('lat')) {
+            if (thisStatus.hasOwnProperty('lat') && thisStatus.lat) {
               markers[thisStatus.id] = {};
               markers[thisStatus.id].lat = thisStatus.lat;
               markers[thisStatus.id].lng = thisStatus.long;
