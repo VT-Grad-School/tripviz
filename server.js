@@ -28,7 +28,7 @@ app.get('/tweets', function (req, res) {
 
 app.get('/locations', function (req, res) {
   models.Location.findAll({
-    order: 'id'
+    order: 'order_pos'
   })
     .then(function(locations) {
       res.status(200).json(locations);

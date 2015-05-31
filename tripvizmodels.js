@@ -30,7 +30,8 @@ var Location = sequelize.define('location', {
   lat: Sequelize.FLOAT(13,10),
   long: Sequelize.FLOAT(13,10),
   radius_km: Sequelize.FLOAT(6,3),
-  zoom: Sequelize.INTEGER
+  zoom: Sequelize.INTEGER,
+  order_pos: Sequelize.FLOAT(6,3)
 });
 
 var Run = sequelize.define('run', {
@@ -76,100 +77,122 @@ exports.start = function () {
       })
       .then(function () {
         console.log('got this far 2.5');
-        return Location.sync().then(function () {
+        return Location.sync()
+        .then(function () {
           console.log('synced loc');
           return Location.findOrCreate({
             where: {
-              name: 'Blacksburg'
+              name: 'Blacksburg',
+              order_pos: 1.0
             },
             defaults: {
               lat: 37.214950492426,
               long: -80.42129516601562,
               radius_km: 2.8,
-              zoom: 14
+              zoom: 14,
             }
           }).then(function() {
             return Location.findOrCreate({
               where: {
-                name: 'Zürich'
+                name: 'Zürich',
+                order_pos: 2.0
               },
               defaults: {
                 lat: 47.38021933437073,
                 long: 8.528480529785156,
                 radius_km: 4.2,
-                zoom: 12
+                zoom: 12,
               }
             });
           }).then(function () {
             return Location.findOrCreate({
               where: {
-                name: 'Basel'
+                name: 'Basel',
+                order_pos: 3.0
               },
               defaults: {
                 lat: 47.55675800,
                 long: 7.59652000,
                 radius_km: 3,
-                zoom: 14
+                zoom: 14,
               }
             });
           }).then(function () {
             return Location.findOrCreate({
               where: {
-                name: 'Milano'
+                name: 'Riva',
+                order_pos: 4.0
+              },
+              defaults: {
+                lat: 45.90673323808819,
+                long: 8.976237773895264,
+                radius_km: 3,
+                zoom: 16,
+              }
+            });
+          }).then(function () {
+            return Location.findOrCreate({
+              where: {
+                name: 'Milano',
+                order_pos: 5.0
               },
               defaults: {
                 lat: 45.475118970435176,
                 long: 9.191780090332031,
                 radius_km: 7,
-                zoom: 14
+                zoom: 14,
               }
             });
           }).then(function () {
             return Location.findOrCreate({
               where: {
-                name: 'Carona'
+                name: 'Carona',
+                order_pos: 6.0
               },
               defaults: {
                 lat: 45.954446666914905,
                 long: 8.939545154571533,
                 radius_km: 3,
-                zoom: 16
+                zoom: 16,
               }
             });
           }).then(function () {
             return Location.findOrCreate({
               where: {
-                name: 'Manno'
+                name: 'Manno',
+                order_pos: 7.0
               },
               defaults: {
                 lat: 46.03171282089657,
                 long: 8.925619125366211,
                 radius_km: 2,
-                zoom: 15
+                zoom: 15,
               }
             });
           }).then(function () {
             return Location.findOrCreate({
               where: {
-                name: 'Lugano'
+                name: 'Lugano',
+                order_pos: 8.0
               },
               defaults: {
                 lat: 46.00492115408297,
                 long: 8.952655792236326,
                 radius_km: 2,
-                zoom: 15
+                zoom: 15,
               }
             });
           }).then(function () {
             return Location.findOrCreate({
               where: {
-                name: 'Other'
+                name: 'Other',
+                order_pos: 9.0
               },
               defaults: {
                 lat: 38.41055825094609,
                 long: -33.3984375,
                 radius_km: 160,
-                zoom: 3
+                zoom: 3,
               }
             });
           }).then(function () {

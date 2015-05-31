@@ -65,6 +65,8 @@ function gotTweets (err, data, response, startTime) {
     }).then(function (runObj) {
 
       if (data.hasOwnProperty('statuses')) {
+        console.log('data.statuses');
+        console.log(data.statuses);
         console.log('gotTweets has statuses', data.statuses.length);
 
         accumulator.push.apply(accumulator, data.statuses);
@@ -76,13 +78,15 @@ function gotTweets (err, data, response, startTime) {
         //if there were more than COUNT tweets, we have to get them COUNT tweets at a time
         if (data.hasOwnProperty('search_metadata') && 
           data.search_metadata.hasOwnProperty('next_results') && 
-          data.next_results.length>0) {
-          // console.log('next results');
+          // data.search_metadata.next_results.hasOwnProperty('length') && 
+          data.search_metadata.next_results.length > 0) {
+          console.log('next results');
+          console.log(data.search_metadata.next_results);
           // ?max_id=475034902396960767&q=%23gpp14%20since%3A2014-05-27&include_entities=1
-          var maxIdPos = data.next_results.indexOf('max_id=');
-          var endMaxPos = data.next_results.indexOf('&', max_id);
-          var maxId = data.next_results.substr(maxIdPos, endMaxPos-maxIdPos);
-          T.get('search/tweets', { q: query, since_id: maxId}, gotTweets); 
+          var maxIdPos = data.search_metadata.next_results.indexOf('max_id=');
+          var endMaxPos = data.search_metadata.next_results.indexOf('&', maxIdPos);
+          var maxId = data.search_metadata.next_results.substr(maxIdPos, endMaxPos-maxIdPos);
+          T.get('search/tweets', { q: QUERY, since_id: maxId}, gotTweets); 
         }
         else {
           // console.log('gotTweets has NO MORE statuses');
