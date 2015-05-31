@@ -120,7 +120,7 @@ exports.start = function () {
           }).then(function () {
             return Location.findOrCreate({
               where: {
-                name: 'Riva',
+                name: 'Riva San Vitale',
                 order_pos: 4.0
               },
               defaults: {
