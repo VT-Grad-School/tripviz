@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <a ng-href="{{medium.url}}:large" ng-repeat="medium in tweet.media"><img ng-src="{{medium.url}}" class="tweet-img"></a>
-    <p class="tweet-text">{{tweet.text}}</p>
+    <p class="tweet-text" ng-bind="tweet.text" linkify="twitter"></p>
   </div>
   <div class="panel-footer">
     <a ng-href="https://twitter.com/{{tweet.user.screenName}}"><img class="tweet-profile" ng-src="{{tweet.user.image}}" alt="twitter profile image for {{tweet.user.screenName}} {{tweet.user.name}}">@{{tweet.user.screenName}}</a><a ng-href="https://twitter.com/{{tweet.user.screenName}}/status/{{tweet.twitter_id}}" class="pull-right">{{tweet.dateTime | date : 'M/d/yy@H:mm'}}</a>

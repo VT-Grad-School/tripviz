@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('tripvizApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'ngResource', 'leaflet-directive', 'ui.router', 'ui.bootstrap'])
+  .module('tripvizApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'ngResource', 'leaflet-directive', 'ui.router', 'ui.bootstrap', 'linkify'])
 
   .config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home/locations');
