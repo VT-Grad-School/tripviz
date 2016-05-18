@@ -11,7 +11,7 @@ var T = new Twit({
   access_token_secret:  'UO7ONwgMLhGeRylc45sZw060lXK7RpAygI9hd7oplivAp'
 });
 
-var QUERY = "#gppswiss15";
+var QUERY = "#gppch16";
 var COUNT = 100;
 
 var accumulator = [];
