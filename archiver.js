@@ -11,7 +11,7 @@ var T = new Twit({
   access_token_secret:  'UO7ONwgMLhGeRylc45sZw060lXK7RpAygI9hd7oplivAp'
 });
 
-var QUERY = "#gppch16";
+var QUERY = "#gppswiss16";
 var COUNT = 100;
 
 var accumulator = [];
@@ -43,6 +43,12 @@ function getLoc (tweet) {
     });
     if (locForTweet.length === 0 && OTHER_LOC) {
       locForTweet = [OTHER_LOC];
+    } else {
+      // if (tweet.hasOwnProperty('place') && tweet.place.hasOwnProperty('url') && tweet.place.url != null && tweet.place.url.length>0) {
+      //   //geo/id/820684853e0f1eb6
+      //   //https://api.twitter.com/1.1/geo/id/820684853e0f1eb6.json
+      //   T.get()
+      // }
     }
   }
   return locForTweet;

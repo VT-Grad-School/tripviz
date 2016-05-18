@@ -1,3 +1,5 @@
+var DROPTABLES = false;
+
 var RSVP = require('rsvp');
 var Sequelize = require('sequelize'),
   sequelize = new Sequelize('gpptripviz', 'gpptripviz', 'gpptripviz', {
@@ -69,15 +71,16 @@ exports.Run = Run;
 exports.Location = Location;
 
 exports.start = function () {
-  var promise = new RSVP.Promise(function (resolve, reject) {
-    return Run.sync()
-      .then(function () {
-        console.log('got this far 1');
-        return User.sync();
-      })
-      .then(function () {
-        console.log('got this far 2.5');
-        return Location.sync()
+  // var promise = new RSVP.Promise(function (resolve, reject) {
+    // return Run.sync()
+    //   .then(function () {
+    //     console.log('got this far 1');
+    //     return User.sync();
+    //   })
+    //   .then(function () {
+    //     console.log('got this far 2.5');
+    //     return Location.sync()
+    return sequelize.sync({force: DROPTABLES})
         .then(function () {
           console.log('synced loc');
           return Location.findOrCreate({
@@ -115,6 +118,32 @@ exports.start = function () {
                 long: 7.59652000,
                 radius_km: 3,
                 zoom: 14,
+              }
+            });
+          }).then(function () {
+            return Location.findOrCreate({
+              where: {
+                name: 'Strasbourg',
+                order_pos: 3.1
+              },
+              defaults: {
+                lat: 48.5804312,
+                long: 7.7433496,
+                radius_km: 1,
+                zoom: 15,
+              }
+            });
+          }).then(function () {
+            return Location.findOrCreate({
+              where: {
+                name: 'Bern',
+                order_pos: 3.2
+              },
+              defaults: {
+                lat: 46.9480357432412,
+                long: 7.445726394653319,
+                radius_km: 1,
+                zoom: 16,
               }
             });
           }).then(function () {
@@ -200,21 +229,21 @@ exports.start = function () {
           }).catch(function (error) {
             console.error('error creating locs', error);
           });
-        });
-      })
-      .then(function () {
-        console.log('got this far 2');
-        return Tweet.sync();
-      })
-      .then(function () {
-        console.log('got this far 3');
-        resolve(Media.sync());
-      })
+        })
+      
+      // .then(function () {
+      //   console.log('got this far 2');
+      //   return Tweet.sync();
+      // })
+      // .then(function () {
+      //   console.log('got this far 3');
+      //   resolve(Media.sync());
+      // })
       .catch(function (error) {
         console.log('got this far 4');
         // console.log('error syncing with db through sequelize', error);
         reject(error);
       });
-  });
-  return promise;
+  // });
+  // return promise;
 };
